@@ -1,35 +1,51 @@
 # PRD - Built With Science
 
 ## Visão Geral
-Built With Science é uma plataforma moderna para compartilhar e descobrir conhecimento científico, conectando pesquisadores e entusiastas da ciência em um ambiente colaborativo e seguro.
+Built With Science é um app completo para planejar e registrar treinos baseados em ciência, oferecendo programas estruturados de 3/4/5 dias, variações de exercícios com tutoriais em vídeo, tracker inteligente e sugestões de progressão de carga baseadas em heurística científica.
 
 ## Objetivos
-- Objetivo principal: Facilitar o compartilhamento e descoberta de conhecimento científico de forma acessível e colaborativa
+- Objetivo principal: Facilitar o planejamento e execução de treinos baseados em evidência científica
 - Objetivos secundários: 
-  - Conectar pesquisadores globalmente
-  - Democratizar o acesso à informação científica
-  - Promover colaboração em pesquisas
+  - Automatizar progressão de carga com IA prática
+  - Oferecer programas validados cientificamente
+  - Funcionar offline-first para uso na academia
+  - Democratizar acesso a treinos de qualidade
 
 ## Público-Alvo
-- **Pesquisadores**: Acadêmicos e cientistas profissionais
-- **Estudantes**: Graduação e pós-graduação em áreas científicas
-- **Educadores**: Professores e instrutores científicos
-- **Entusiastas**: Pessoas interessadas em ciência e tecnologia
+- **Praticantes de musculação**: Iniciantes a avançados
+- **Personal trainers**: Profissionais que prescrevem treinos
+- **Entusiastas fitness**: Pessoas que buscam treinos baseados em ciência
+- **Atletas**: Que precisam de progressão estruturada
 
-## Funcionalidades Core
-1. **Explorar artigos científicos**: Sistema de busca e filtros avançados
-2. **Compartilhar pesquisas**: Upload e publicação de trabalhos científicos
-3. **Sistema de colaboração**: Ferramentas para trabalho em equipe
-4. **Dashboard de métricas**: Análise de impacto e engajamento
-5. **Sistema de avaliação por pares**: Review e feedback de pesquisas
+## Funcionalidades Core (MVP)
+1. **Onboarding & Preferências**: Login Google, unidades (kg/lb), preferências de vídeo, agressividade de sugestão
+2. **Programas 3/4/5 dias**: Escolha de programa, visualização de dias e exercícios
+3. **Variações de exercícios**: Até 5 variações por exercício com tutoriais YouTube
+4. **Tracker de treino**: Registrar sets, pesos, reps, RPE/dificuldade com último set pré-carregado
+5. **Sugestão de carga**: IA heurística baseada em performance anterior e dificuldade percebida
 
 ## Requisitos Técnicos
 - Framework: Next.js 15.x com App Router
 - UI: Shadcn/ui + Tailwind CSS
 - Linguagem: TypeScript
-- Autenticação: Sistema de login com perfis de usuário
-- Dados: Mock data inicialmente (sem banco de dados)
+- Backend: Supabase (Postgres) com RLS ativado
+- Autenticação: Google Auth via Supabase
+- Dados: CSVs estruturados já prontos para importação
+- Cache: Offline-first com sincronização automática
 - Deploy: Vercel com CI/CD automatizado
+
+## Estrutura de Dados
+### Programas e Exercícios (Seed Data)
+- **3 Programas**: 3-day, 4-day, 5-day Program
+- **36 Exercícios**: De Barbell Back Squat a Weighted Step-Ups
+- **78 Variações**: Com links para tutoriais YouTube
+- **172 Sets**: Com targets de repetições (ex: "8-10", "6-12")
+
+### Dados do Usuário
+- **Preferências**: Unidades (kg/lb), agressividade de sugestão, preferência de vídeo
+- **Sessões**: Histórico completo de treinos
+- **Cache**: Último set por exercício para pré-preenchimento
+- **Progressão**: Sugestões baseadas em RPE e performance anterior
 
 ## Requisitos de Segurança (OWASP Top 10)
 1. **Broken Access Control**: Implementar RBAC e validação de permissões

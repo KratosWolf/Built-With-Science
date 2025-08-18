@@ -106,3 +106,4 @@ jobs:
         channel: '#deployments'
         webhook_url: ${{ secrets.SLACK_WEBHOOK }}
         message: 'Production deployment successful! 🚀'
+

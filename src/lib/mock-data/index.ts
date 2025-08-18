@@ -75,3 +75,4 @@ export async function getMockResearchProjects() {
   await simulateDelay(600);
   return mockResearchProjects;
 }
+

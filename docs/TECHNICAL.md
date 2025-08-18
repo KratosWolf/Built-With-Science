@@ -82,3 +82,4 @@ const securityHeaders = {
 
 ### Validações
 Toda entrada de dados deve ser validada com Zod antes do processamento.
+

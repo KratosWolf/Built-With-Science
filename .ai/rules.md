@@ -73,3 +73,4 @@ export async function POST(req: Request) {
 - [ ] Documentação atualizada
 - [ ] Segurança verificada (OWASP)
 - [ ] Performance otimizada
+

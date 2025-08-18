@@ -42,3 +42,4 @@ npm run test:ci
 
 echo "✅ Setup completed successfully!"
 echo "🎉 Run 'npm run dev' to start development server"
+

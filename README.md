@@ -257,3 +257,4 @@ If you have any questions or need help, please:
 ---
 
 Made with ❤️ by [Tiago Fernandes](https://github.com/KratosWolf)
+

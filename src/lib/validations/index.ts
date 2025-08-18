@@ -50,3 +50,4 @@ export type Article = z.infer<typeof articleSchema>;
 export type ResearchProject = z.infer<typeof researchProjectSchema>;
 export type ContactForm = z.infer<typeof contactSchema>;
 export type SearchQuery = z.infer<typeof searchSchema>;
+

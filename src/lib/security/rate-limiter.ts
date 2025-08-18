@@ -50,3 +50,4 @@ export const authRateLimit = rateLimit({
   windowMs: 15 * 60 * 1000, // 15 minutos
   maxRequests: 5
 });
+
