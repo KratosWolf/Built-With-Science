@@ -45,23 +45,29 @@ const mockDayExercises = {
   1: [ // Full Body A
     { exerciseId: 1, sets: 3, repsTarget: "6-8" }, // Barbell Back Squat
     { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row
+    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
     { exerciseId: 6, sets: 3, repsTarget: "10-12" }, // Cable Lateral Raise
     { exerciseId: 12, sets: 2, repsTarget: "10-12" }, // Hammer Curls
+    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
+    { exerciseId: 27, sets: 2, repsTarget: "30-45s" }, // Side Plank
   ],
   2: [ // Full Body B
     { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
     { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
     { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
     { exerciseId: 24, sets: 3, repsTarget: "10-12" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
+    { exerciseId: 23, sets: 2, repsTarget: "10-12" }, // Seated Dumbbell Curls
+    { exerciseId: 13, sets: 2, repsTarget: "10-12" }, // Incline DB Overhead Extensions
+    { exerciseId: 34, sets: 3, repsTarget: "12-15" }, // Standing Weighted Calf Raise
   ],
   3: [ // Full Body C
     { exerciseId: 4, sets: 3, repsTarget: "8-10" }, // Barbell Hip Thrust
     { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
     { exerciseId: 15, sets: 3, repsTarget: "8-10" }, // Kneeling Lat Pulldown
     { exerciseId: 9, sets: 3, repsTarget: "12-15" }, // Dumbbell Lateral Raise
+    { exerciseId: 32, sets: 3, repsTarget: "12-15" }, // Standing Face Pulls
     { exerciseId: 14, sets: 2, repsTarget: "10-12" }, // Incline Dumbbell Curls
+    { exerciseId: 19, sets: 2, repsTarget: "10-12" }, // Lying Leg Curls
   ],
   4: [ // Upper 1 (4-day)
     { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
