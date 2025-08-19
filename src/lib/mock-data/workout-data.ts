@@ -146,112 +146,86 @@ export const mockExercises: Exercise[] = [
   { id: 36, name: "Weighted Step-Ups*" }
 ];
 
-// Variações de exercícios com alternativas
+// Variações de exercícios baseadas no CSV original
 export const mockExerciseVariations: ExerciseVariation[] = [
-  // Barbell Back Squat (id: 1)
-  { id: 1, exercise_id: 1, variation_index: 1, variation_name: "Barbell Back Squat", youtube_url: "https://youtu.be/AWo-q7P-HZ0" },
-  { id: 2, exercise_id: 1, variation_index: 2, variation_name: "Goblet Squat", youtube_url: "https://youtu.be/MeIiIdhvXT4" },
-  { id: 3, exercise_id: 1, variation_index: 3, variation_name: "Dumbbell Squat", youtube_url: "https://youtu.be/xqvCmoLULNY" },
-  { id: 4, exercise_id: 1, variation_index: 4, variation_name: "Smith Machine Squat", youtube_url: "https://youtu.be/IB7NoVVJp-g" },
-  
-  // Barbell Bench Press (id: 2)
-  { id: 5, exercise_id: 2, variation_index: 1, variation_name: "Barbell Bench Press", youtube_url: "https://youtu.be/pCGVSBk0bIQ" },
-  { id: 6, exercise_id: 2, variation_index: 2, variation_name: "Dumbbell Bench Press", youtube_url: "https://youtu.be/QCAuqXCMJOE" },
-  { id: 7, exercise_id: 2, variation_index: 3, variation_name: "Push-ups", youtube_url: "https://youtu.be/IODxDxX7oi4" },
-  { id: 8, exercise_id: 2, variation_index: 4, variation_name: "Incline Barbell Press", youtube_url: "https://youtu.be/SrqOu55lrYU" },
-  
-  // Barbell Deadlift (id: 3)
-  { id: 9, exercise_id: 3, variation_index: 1, variation_name: "Conventional Deadlift", youtube_url: "https://youtu.be/JL1tJTEmxfw" },
-  { id: 10, exercise_id: 3, variation_index: 2, variation_name: "Sumo Deadlift", youtube_url: "https://youtu.be/sO8lFa9CidE" },
-  { id: 11, exercise_id: 3, variation_index: 3, variation_name: "Romanian Deadlift", youtube_url: "https://youtu.be/3Z3C44SXSQE" },
-  { id: 12, exercise_id: 3, variation_index: 4, variation_name: "Trap Bar Deadlift", youtube_url: "https://youtu.be/hPpNTAEDnxM" },
-  { id: 13, exercise_id: 3, variation_index: 5, variation_name: "Deficit Deadlift", youtube_url: "https://youtu.be/N-kUwH1uf9c" },
-  
-  // Barbell Hip Thrust (id: 4)
-  { id: 14, exercise_id: 4, variation_index: 1, variation_name: "Barbell Hip Thrust", youtube_url: "https://youtu.be/_vBMijiZoxE" },
-  { id: 15, exercise_id: 4, variation_index: 2, variation_name: "Single Leg Hip Thrust", youtube_url: "https://youtu.be/kpzUeELReEA" },
-  { id: 16, exercise_id: 4, variation_index: 3, variation_name: "Dumbbell Hip Thrust", youtube_url: "https://youtu.be/abc1fisYB3w" },
-  { id: 17, exercise_id: 4, variation_index: 4, variation_name: "Glute Bridge", youtube_url: "https://youtu.be/OUgsJ8-Vi0E" },
-  
-  // Barbell Row (id: 5)
-  { id: 18, exercise_id: 5, variation_index: 1, variation_name: "Barbell Row", youtube_url: "https://youtu.be/9efgcAjQe7E" },
-  { id: 19, exercise_id: 5, variation_index: 2, variation_name: "T-Bar Row", youtube_url: "https://youtu.be/j3Igk5nyZE4" },
-  { id: 20, exercise_id: 5, variation_index: 3, variation_name: "Dumbbell Row", youtube_url: "https://youtu.be/pYcpY20QaE8" },
-  { id: 21, exercise_id: 5, variation_index: 4, variation_name: "Chest Supported Row", youtube_url: "https://youtu.be/UCXxvVItLoM" },
-  
-  // Cable Lateral Raise (id: 6)
-  { id: 22, exercise_id: 6, variation_index: 1, variation_name: "Cable Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  { id: 23, exercise_id: 6, variation_index: 2, variation_name: "Dumbbell Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  { id: 24, exercise_id: 6, variation_index: 3, variation_name: "Machine Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  
-  // Cable Pushdowns (id: 7)
-  { id: 25, exercise_id: 7, variation_index: 1, variation_name: "Cable Pushdowns", youtube_url: "https://youtu.be/2-LAMcpzODU" },
-  { id: 26, exercise_id: 7, variation_index: 2, variation_name: "Overhead Extension", youtube_url: "https://youtu.be/2-LAMcpzODU" },
-  { id: 27, exercise_id: 7, variation_index: 3, variation_name: "Close Grip Push-ups", youtube_url: "https://youtu.be/2-LAMcpzODU" },
-  
-  // Flat Dumbbell Press (id: 11)
-  { id: 28, exercise_id: 11, variation_index: 1, variation_name: "Flat Dumbbell Press", youtube_url: "https://youtu.be/QCAuqXCMJOE" },
-  { id: 29, exercise_id: 11, variation_index: 2, variation_name: "Incline Dumbbell Press", youtube_url: "https://youtu.be/8iPEnn-ltC8" },
-  { id: 30, exercise_id: 11, variation_index: 3, variation_name: "Decline Dumbbell Press", youtube_url: "https://youtu.be/Lrq3GBKBaUE" },
-  
-  // Hammer Curls (id: 12)
-  { id: 31, exercise_id: 12, variation_index: 1, variation_name: "Hammer Curls", youtube_url: "https://youtu.be/zC3nLlEvin4" },
-  { id: 32, exercise_id: 12, variation_index: 2, variation_name: "Cross Body Hammer Curls", youtube_url: "https://youtu.be/zC3nLlEvin4" },
-  { id: 33, exercise_id: 12, variation_index: 3, variation_name: "Cable Hammer Curls", youtube_url: "https://youtu.be/zC3nLlEvin4" },
-  
-  // Lat Pulldown (id: 17)
-  { id: 34, exercise_id: 17, variation_index: 1, variation_name: "Wide Grip Lat Pulldown", youtube_url: "https://youtu.be/CAwf7n6Luuc" },
-  { id: 35, exercise_id: 17, variation_index: 2, variation_name: "Close Grip Lat Pulldown", youtube_url: "https://youtu.be/CAwf7n6Luuc" },
-  { id: 36, exercise_id: 17, variation_index: 3, variation_name: "Neutral Grip Pulldown", youtube_url: "https://youtu.be/CAwf7n6Luuc" },
-  { id: 37, exercise_id: 17, variation_index: 4, variation_name: "Pull-ups", youtube_url: "https://youtu.be/eGo4IYlbE5g" },
-  
-  // Seated Dumbbell Shoulder Press (id: 24)
-  { id: 38, exercise_id: 24, variation_index: 1, variation_name: "Seated DB Shoulder Press", youtube_url: "https://youtu.be/qEwKCR5JCog" },
-  { id: 39, exercise_id: 24, variation_index: 2, variation_name: "Standing DB Press", youtube_url: "https://youtu.be/qEwKCR5JCog" },
-  { id: 40, exercise_id: 24, variation_index: 3, variation_name: "Arnold Press", youtube_url: "https://youtu.be/6Z15_WdXmVw" },
-  { id: 41, exercise_id: 24, variation_index: 4, variation_name: "Military Press", youtube_url: "https://youtu.be/2yjwXTZQDDI" },
-  
-  // Dumbbell Fly (id: 8)
-  { id: 42, exercise_id: 8, variation_index: 1, variation_name: "Flat Dumbbell Fly", youtube_url: "https://youtu.be/eozdVDA78K0" },
-  { id: 43, exercise_id: 8, variation_index: 2, variation_name: "Incline Dumbbell Fly", youtube_url: "https://youtu.be/Z57CtFmRMxA" },
-  { id: 44, exercise_id: 8, variation_index: 3, variation_name: "Cable Fly", youtube_url: "https://youtu.be/Iwe6AmxVf7o" },
-  
-  // Dumbbell Lateral Raise (id: 9)
-  { id: 45, exercise_id: 9, variation_index: 1, variation_name: "Dumbbell Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  { id: 46, exercise_id: 9, variation_index: 2, variation_name: "Cable Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  { id: 47, exercise_id: 9, variation_index: 3, variation_name: "Machine Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
-  
-  // Dumbbell Romanian Deadlift (id: 10)
-  { id: 48, exercise_id: 10, variation_index: 1, variation_name: "Dumbbell Romanian Deadlift", youtube_url: "https://youtu.be/2SHsk9AzdjA" },
-  { id: 49, exercise_id: 10, variation_index: 2, variation_name: "Single Leg RDL", youtube_url: "https://youtu.be/2SHsk9AzdjA" },
-  { id: 50, exercise_id: 10, variation_index: 3, variation_name: "Barbell Romanian Deadlift", youtube_url: "https://youtu.be/3Z3C44SXSQE" },
-  
-  // Seated Cable Row (id: 22)
-  { id: 51, exercise_id: 22, variation_index: 1, variation_name: "Seated Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
-  { id: 52, exercise_id: 22, variation_index: 2, variation_name: "Wide Grip Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
-  { id: 53, exercise_id: 22, variation_index: 3, variation_name: "V-Bar Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
-  
-  // Quad-Focused Leg Press (id: 20)
-  { id: 54, exercise_id: 20, variation_index: 1, variation_name: "Leg Press", youtube_url: "https://youtu.be/IZxyjW7MPJQ" },
-  { id: 55, exercise_id: 20, variation_index: 2, variation_name: "Single Leg Press", youtube_url: "https://youtu.be/IZxyjW7MPJQ" },
-  { id: 56, exercise_id: 20, variation_index: 3, variation_name: "Hack Squat", youtube_url: "https://youtu.be/EdtaJRBqEYI" },
-  
-  // Seated Leg Extensions (id: 26)
-  { id: 57, exercise_id: 26, variation_index: 1, variation_name: "Seated Leg Extensions", youtube_url: "https://youtu.be/YyvSfVjQeL0" },
-  { id: 58, exercise_id: 26, variation_index: 2, variation_name: "Single Leg Extensions", youtube_url: "https://youtu.be/YyvSfVjQeL0" },
-  
-  // Lying Leg Curls (id: 19)
-  { id: 59, exercise_id: 19, variation_index: 1, variation_name: "Lying Leg Curls", youtube_url: "https://youtu.be/ELOCsoDSmrg" },
-  { id: 60, exercise_id: 19, variation_index: 2, variation_name: "Single Leg Curls", youtube_url: "https://youtu.be/ELOCsoDSmrg" },
-  
-  // Standing Face Pulls (id: 32)
-  { id: 61, exercise_id: 32, variation_index: 1, variation_name: "Cable Face Pulls", youtube_url: "https://youtu.be/rep-qVOkqgk" },
-  { id: 62, exercise_id: 32, variation_index: 2, variation_name: "Band Face Pulls", youtube_url: "https://youtu.be/rep-qVOkqgk" },
-  
-  // Walking Lunges (id: 35)
-  { id: 63, exercise_id: 35, variation_index: 1, variation_name: "Walking Lunges", youtube_url: "https://youtu.be/L8fvypPrzzs" },
-  { id: 64, exercise_id: 35, variation_index: 2, variation_name: "Reverse Lunges", youtube_url: "https://youtu.be/L8fvypPrzzs" },
-  { id: 65, exercise_id: 35, variation_index: 3, variation_name: "Bulgarian Split Squat", youtube_url: "https://youtu.be/2C-uNgKwPLE" }
+  { id: 1, exercise_id: 1, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/AWo-q7P-HZ0" },
+  { id: 2, exercise_id: 2, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/pCGVSBk0bIQ" },
+  { id: 3, exercise_id: 3, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JL1tJTEmxfw" },
+  { id: 4, exercise_id: 3, variation_index: 2, variation_name: "Sumo Deadlift", youtube_url: "https://youtu.be/sO8lFa9CidE" },
+  { id: 5, exercise_id: 3, variation_index: 3, variation_name: "Romanian Deadlift", youtube_url: "https://youtu.be/3Z3C44SXSQE" },
+  { id: 6, exercise_id: 3, variation_index: 4, variation_name: "Trap Bar Deadlift", youtube_url: "https://youtu.be/hPpNTAEDnxM" },
+  { id: 7, exercise_id: 3, variation_index: 5, variation_name: "Deficit Deadlift", youtube_url: "https://youtu.be/N-kUwH1uf9c" },
+  { id: 8, exercise_id: 4, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/_vBMijiZoxE" },
+  { id: 9, exercise_id: 4, variation_index: 2, variation_name: "Single Leg Hip Thrust", youtube_url: "https://youtu.be/kpzUeELReEA" },
+  { id: 10, exercise_id: 4, variation_index: 3, variation_name: "Dumbbell Hip Thrust", youtube_url: "https://youtu.be/abc1fisYB3w" },
+  { id: 11, exercise_id: 4, variation_index: 4, variation_name: "Glute Bridge", youtube_url: "https://youtu.be/R53nThQcdZo" },
+  { id: 12, exercise_id: 5, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/tS5lKXxtNvE" },
+  { id: 13, exercise_id: 6, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/1muit9qEctY" },
+  { id: 14, exercise_id: 6, variation_index: 2, variation_name: "Dumbbell Lateral Raise", youtube_url: "https://youtu.be/rnV3y1P7894" },
+  { id: 15, exercise_id: 6, variation_index: 3, variation_name: "Machine Lateral Raise", youtube_url: "https://youtu.be/WRn2hqy0gXU" },
+  { id: 16, exercise_id: 6, variation_index: 4, variation_name: "Plate Lateral Raise", youtube_url: "https://youtu.be/dI7LVElfMOg" },
+  { id: 17, exercise_id: 7, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/MlfCS_7ZLXA" },
+  { id: 18, exercise_id: 8, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/WRn2hqy0gXU" },
+  { id: 19, exercise_id: 9, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/zcO3sgAeLA0" },
+  { id: 20, exercise_id: 10, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Xu4DxwKWzl4" },
+  { id: 21, exercise_id: 11, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/g14dhC5KYBM" },
+  { id: 22, exercise_id: 11, variation_index: 2, variation_name: "Incline Dumbbell Press", youtube_url: "https://youtu.be/kpzUeELReEA" },
+  { id: 23, exercise_id: 11, variation_index: 3, variation_name: "Decline Dumbbell Press", youtube_url: "https://youtu.be/abc1fisYB3w" },
+  { id: 24, exercise_id: 11, variation_index: 4, variation_name: "Single Arm DB Press", youtube_url: "https://youtu.be/R53nThQcdZo" },
+  { id: 25, exercise_id: 12, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/OrGL-ymYREg" },
+  { id: 26, exercise_id: 13, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/3d86xMhHROA" },
+  { id: 27, exercise_id: 14, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/3D56VDVkQnM" },
+  { id: 28, exercise_id: 15, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/4LxKeTqlpZA" },
+  { id: 29, exercise_id: 16, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/ZaEnZ47cDTk" },
+  { id: 30, exercise_id: 16, variation_index: 2, variation_name: "Wide Grip Cable Row", youtube_url: "https://youtu.be/LdahU9kB-u0" },
+  { id: 31, exercise_id: 16, variation_index: 3, variation_name: "V-Bar Cable Row", youtube_url: "https://youtu.be/JfZjng7jAKs" },
+  { id: 32, exercise_id: 16, variation_index: 4, variation_name: "Single Arm Cable Row", youtube_url: "https://youtu.be/iv3Uldr7LJc" },
+  { id: 33, exercise_id: 17, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/AvYZZhEl7Xk" },
+  { id: 34, exercise_id: 18, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/kpzUeELReEA" },
+  { id: 35, exercise_id: 18, variation_index: 2, variation_name: "30° Incline DB Press", youtube_url: "https://youtu.be/sO8lFa9CidE" },
+  { id: 36, exercise_id: 18, variation_index: 3, variation_name: "45° Incline DB Press", youtube_url: "https://youtu.be/3Z3C44SXSQE" },
+  { id: 37, exercise_id: 18, variation_index: 4, variation_name: "Adjustable Incline", youtube_url: "https://youtu.be/hPpNTAEDnxM" },
+  { id: 38, exercise_id: 18, variation_index: 5, variation_name: "Single Arm Incline", youtube_url: "https://youtu.be/N-kUwH1uf9c" },
+  { id: 39, exercise_id: 19, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/aYy3alWRDmk" },
+  { id: 40, exercise_id: 19, variation_index: 2, variation_name: "Single Leg Curls", youtube_url: "https://youtu.be/6qV1WZ_z0u0" },
+  { id: 41, exercise_id: 19, variation_index: 3, variation_name: "Seated Leg Curls", youtube_url: "https://youtu.be/LdahU9kB-u0" },
+  { id: 42, exercise_id: 19, variation_index: 4, variation_name: "Standing Leg Curls", youtube_url: "https://youtu.be/fyFVaCP9J-8" },
+  { id: 43, exercise_id: 20, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/0nrW-q7-WRQ" },
+  { id: 44, exercise_id: 21, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/k9G7BykDD4o" },
+  { id: 45, exercise_id: 21, variation_index: 2, variation_name: "Single Arm Rear Delt", youtube_url: "https://youtu.be/6qV1WZ_z0u0" },
+  { id: 46, exercise_id: 21, variation_index: 3, variation_name: "Reverse Fly Machine", youtube_url: "https://youtu.be/LdahU9kB-u0" },
+  { id: 47, exercise_id: 21, variation_index: 4, variation_name: "Band Reverse Fly", youtube_url: "https://youtu.be/fyFVaCP9J-8" },
+  { id: 48, exercise_id: 22, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Q-5V5T55giY" },
+  { id: 49, exercise_id: 23, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/qUAzPq4B2aw" },
+  { id: 50, exercise_id: 23, variation_index: 2, variation_name: "Hammer Curls", youtube_url: "https://youtu.be/S2CNDlAY8kY" },
+  { id: 51, exercise_id: 23, variation_index: 3, variation_name: "Alternating DB Curls", youtube_url: "https://youtu.be/-ClfZ00zo8c" },
+  { id: 52, exercise_id: 23, variation_index: 4, variation_name: "Concentration Curls", youtube_url: "https://youtu.be/OrGL-ymYREg" },
+  { id: 53, exercise_id: 24, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/DPXG3BJvl8A" },
+  { id: 54, exercise_id: 25, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/81umRgyxIAU" },
+  { id: 55, exercise_id: 26, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/nIalczfM8es" },
+  { id: 56, exercise_id: 26, variation_index: 2, variation_name: "Single Leg Extensions", youtube_url: "https://youtu.be/6qV1WZ_z0u0" },
+  { id: 57, exercise_id: 26, variation_index: 3, variation_name: "Drop Set Extensions", youtube_url: "https://youtu.be/LdahU9kB-u0" },
+  { id: 58, exercise_id: 26, variation_index: 4, variation_name: "Pause Rep Extensions", youtube_url: "https://youtu.be/fyFVaCP9J-8" },
+  { id: 59, exercise_id: 27, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/o4LGPtKjbhU" },
+  { id: 60, exercise_id: 28, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/cRKA_Qdut7I" },
+  { id: 61, exercise_id: 29, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/hdioTTf8qdw" },
+  { id: 62, exercise_id: 29, variation_index: 2, variation_name: "Alternating Single Leg", youtube_url: "https://youtu.be/LdahU9kB-u0" },
+  { id: 63, exercise_id: 29, variation_index: 3, variation_name: "Pulse Reps", youtube_url: "https://youtu.be/JfZjng7jAKs" },
+  { id: 64, exercise_id: 29, variation_index: 4, variation_name: "Slow Negative", youtube_url: "https://youtu.be/pSOseCLdzIY" },
+  { id: 65, exercise_id: 30, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/srYETmyq3_c" },
+  { id: 66, exercise_id: 30, variation_index: 2, variation_name: "Single Leg Hip Thrust", youtube_url: "https://youtu.be/kpzUeELReEA" },
+  { id: 67, exercise_id: 30, variation_index: 3, variation_name: "Pause Rep Hip Thrust", youtube_url: "https://youtu.be/abc1fisYB3w" },
+  { id: 68, exercise_id: 30, variation_index: 4, variation_name: "Banded Hip Thrust", youtube_url: "https://youtu.be/R53nThQcdZo" },
+  { id: 69, exercise_id: 31, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/zSVi51Jp3eI" },
+  { id: 70, exercise_id: 32, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/02g7XtSRXug" },
+  { id: 71, exercise_id: 32, variation_index: 2, variation_name: "Band Face Pulls", youtube_url: "https://youtu.be/XgwPiPY4vCI" },
+  { id: 72, exercise_id: 32, variation_index: 3, variation_name: "Single Arm Face Pulls", youtube_url: "https://youtu.be/Fua2QlXnn6Y" },
+  { id: 73, exercise_id: 32, variation_index: 4, variation_name: "High Face Pulls", youtube_url: "https://youtu.be/kNvy2_9Ji2w" },
+  { id: 74, exercise_id: 32, variation_index: 5, variation_name: "Low Face Pulls", youtube_url: "https://youtu.be/FTCmwlfZ29A" },
+  { id: 75, exercise_id: 33, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JfZjng7jAKs" },
+  { id: 76, exercise_id: 34, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/q2Eigaa9dKU" },
+  { id: 77, exercise_id: 35, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JB20RuTOaFc" },
+  { id: 78, exercise_id: 36, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Cjc3AgmdtlA" }
 ];
 
 // Mock user para desenvolvimento

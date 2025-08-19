@@ -40,111 +40,90 @@ interface ExerciseSetData {
   variations: ExerciseVariation[];
 }
 
-// Mock data para exercícios do dia (baseado no CSV)
+// Mock data para exercícios do dia (baseado no day_exercises.csv)
 const mockDayExercises = {
-  1: [ // Full Body A
-    { exerciseId: 1, sets: 3, repsTarget: "6-8" }, // Barbell Back Squat
-    { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
-    { exerciseId: 6, sets: 3, repsTarget: "10-12" }, // Cable Lateral Raise
-    { exerciseId: 12, sets: 2, repsTarget: "10-12" }, // Hammer Curls
-    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
-    { exerciseId: 27, sets: 2, repsTarget: "30-45s" }, // Side Plank
-  ],
-  2: [ // Full Body B
-    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+  1: [ // Full Body A (program_day_id: 1)
     { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { exerciseId: 10, sets: 3, repsTarget: "6-12" }, // Dumbbell Romanian Deadlift
     { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
-    { exerciseId: 24, sets: 3, repsTarget: "10-12" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 23, sets: 2, repsTarget: "10-12" }, // Seated Dumbbell Curls
-    { exerciseId: 13, sets: 2, repsTarget: "10-12" }, // Incline DB Overhead Extensions
-    { exerciseId: 34, sets: 3, repsTarget: "12-15" }, // Standing Weighted Calf Raise
+    { exerciseId: 35, sets: 3, repsTarget: "8-10" }, // Walking Lunges (quad focus)
   ],
-  3: [ // Full Body C
-    { exerciseId: 4, sets: 3, repsTarget: "8-10" }, // Barbell Hip Thrust
-    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 15, sets: 3, repsTarget: "8-10" }, // Kneeling Lat Pulldown
-    { exerciseId: 9, sets: 3, repsTarget: "12-15" }, // Dumbbell Lateral Raise
-    { exerciseId: 32, sets: 3, repsTarget: "12-15" }, // Standing Face Pulls
-    { exerciseId: 14, sets: 2, repsTarget: "10-12" }, // Incline Dumbbell Curls
-    { exerciseId: 19, sets: 2, repsTarget: "10-12" }, // Lying Leg Curls
-  ],
-  4: [ // Upper 1 (4-day)
-    { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
-    { exerciseId: 24, sets: 3, repsTarget: "10-12" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 17, sets: 3, repsTarget: "10-12" }, // Lat Pulldown
-    { exerciseId: 8, sets: 3, repsTarget: "10-12" }, // Dumbbell Fly
-    { exerciseId: 12, sets: 2, repsTarget: "10-12" }, // Hammer Curls
-    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
-  ],
-  5: [ // Lower 1 (Quad Focus) (4-day)
-    { exerciseId: 1, sets: 3, repsTarget: "6-8" }, // Barbell Back Squat
-    { exerciseId: 10, sets: 3, repsTarget: "8-10" }, // Dumbbell Romanian Deadlift
-    { exerciseId: 20, sets: 3, repsTarget: "10-12" }, // Quad-Focused Leg Press
-    { exerciseId: 26, sets: 3, repsTarget: "10-12" }, // Seated Leg Extensions
-    { exerciseId: 19, sets: 3, repsTarget: "10-12" }, // Lying Leg Curls
-    { exerciseId: 34, sets: 3, repsTarget: "12-15" }, // Standing Weighted Calf Raise
-  ],
-  6: [ // Upper 2 (4-day)
-    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
-    { exerciseId: 22, sets: 3, repsTarget: "8-10" }, // Seated Cable Row (mid/upper back)
-    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 15, sets: 3, repsTarget: "8-10" }, // Kneeling Lat Pulldown
-    { exerciseId: 6, sets: 3, repsTarget: "10-12" }, // Cable Lateral Raise
-    { exerciseId: 23, sets: 2, repsTarget: "10-12" }, // Seated Dumbbell Curls
-    { exerciseId: 13, sets: 2, repsTarget: "10-12" }, // Incline DB Overhead Extensions
-  ],
-  7: [ // Lower 2 (Glute Focus) (4-day)
-    { exerciseId: 4, sets: 3, repsTarget: "8-10" }, // Barbell Hip Thrust
-    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
-    { exerciseId: 35, sets: 3, repsTarget: "10-12" }, // Walking Lunges (quad focus)
-    { exerciseId: 25, sets: 3, repsTarget: "10-12" }, // Seated Leg Curls
-    { exerciseId: 29, sets: 3, repsTarget: "10-12" }, // Single-Leg Leg Press
-    { exerciseId: 28, sets: 3, repsTarget: "12-15" }, // Single Leg Weighted Calf Raise
-  ],
-  8: [ // Upper (5-day)
-    { exerciseId: 2, sets: 4, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 5, sets: 4, repsTarget: "8-10" }, // Barbell Row (lat focus)
-    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
-    { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
-    { exerciseId: 24, sets: 3, repsTarget: "10-12" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 8, sets: 3, repsTarget: "10-12" }, // Dumbbell Fly
-    { exerciseId: 21, sets: 3, repsTarget: "12-15" }, // Rear Delt Cable Row
-  ],
-  9: [ // Lower 1 (Quad Focus) (5-day)
-    { exerciseId: 1, sets: 4, repsTarget: "6-8" }, // Barbell Back Squat
+  2: [ // Full Body B (program_day_id: 2)
     { exerciseId: 20, sets: 3, repsTarget: "8-10" }, // Quad-Focused Leg Press
-    { exerciseId: 26, sets: 3, repsTarget: "10-12" }, // Seated Leg Extensions
-    { exerciseId: 35, sets: 3, repsTarget: "10-12" }, // Walking Lunges (quad focus)
-    { exerciseId: 19, sets: 3, repsTarget: "10-12" }, // Lying Leg Curls
-    { exerciseId: 34, sets: 4, repsTarget: "12-15" }, // Standing Weighted Calf Raise
+    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { exerciseId: 25, sets: 3, repsTarget: "10-15" }, // Seated Leg Curls
+    { exerciseId: 13, sets: 3, repsTarget: "10-15" }, // Incline DB Overhead Extensions
   ],
-  10: [ // Push (5-day)
-    { exerciseId: 2, sets: 4, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 24, sets: 3, repsTarget: "8-10" }, // Seated Dumbbell Shoulder Press
+  3: [ // Full Body C (program_day_id: 3)
+    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+    { exerciseId: 26, sets: 3, repsTarget: "10-15" }, // Seated Leg Extensions
+    { exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
+    { exerciseId: 23, sets: 3, repsTarget: "10-15" }, // Seated Dumbbell Curls
+  ],
+  4: [ // Upper 1 (program_day_id: 4)
+    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { exerciseId: 17, sets: 3, repsTarget: "6-12" }, // Lat Pulldown
+    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { exerciseId: 8, sets: 3, repsTarget: "10-15" }, // Dumbbell Fly
+    { exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
+    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
+  ],
+  5: [ // Lower 1 (Quad Focus) (program_day_id: 5)
+    { exerciseId: 1, sets: 3, repsTarget: "8-10" }, // Barbell Back Squat
+    { exerciseId: 35, sets: 3, repsTarget: "8-10" }, // Walking Lunges (quad focus)
+    { exerciseId: 34, sets: 3, repsTarget: "10-15" }, // Standing Weighted Calf Raise
+    { exerciseId: 27, sets: 2, repsTarget: "30" }, // Side Plank
+  ],
+  6: [ // Upper 2 (program_day_id: 6)
     { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 6, sets: 3, repsTarget: "10-12" }, // Cable Lateral Raise
-    { exerciseId: 33, sets: 3, repsTarget: "10-12" }, // Standing High To Low Cable Fly
-    { exerciseId: 7, sets: 3, repsTarget: "10-12" }, // Cable Pushdowns
-    { exerciseId: 13, sets: 3, repsTarget: "10-12" }, // Incline DB Overhead Extensions
+    { exerciseId: 16, sets: 3, repsTarget: "10-12" }, // Lat Focused Cable Row
+    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { exerciseId: 21, sets: 3, repsTarget: "12-15" }, // Rear Delt Cable Row
+    { exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
+    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
   ],
-  11: [ // Pull (5-day)
-    { exerciseId: 3, sets: 4, repsTarget: "6-8" }, // Barbell Deadlift
-    { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
-    { exerciseId: 22, sets: 3, repsTarget: "8-10" }, // Seated Cable Row (mid/upper back)
-    { exerciseId: 16, sets: 3, repsTarget: "8-10" }, // Lat Focused Cable Row
-    { exerciseId: 32, sets: 3, repsTarget: "12-15" }, // Standing Face Pulls
-    { exerciseId: 12, sets: 3, repsTarget: "10-12" }, // Hammer Curls
-    { exerciseId: 14, sets: 3, repsTarget: "10-12" }, // Incline Dumbbell Curls
+  7: [ // Lower 2 (Glute Focus) (program_day_id: 7)
+    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+    { exerciseId: 29, sets: 3, repsTarget: "8-10" }, // Single-Leg Leg Press
+    { exerciseId: 4, sets: 3, repsTarget: "10-15" }, // Barbell Hip Thrust
+    { exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
   ],
-  12: [ // Lower 2 (Glute Focus) (5-day)
-    { exerciseId: 4, sets: 4, repsTarget: "8-10" }, // Barbell Hip Thrust
-    { exerciseId: 10, sets: 3, repsTarget: "8-10" }, // Dumbbell Romanian Deadlift
-    { exerciseId: 30, sets: 3, repsTarget: "8-10" }, // Smith Machine Hip Thrust
-    { exerciseId: 25, sets: 3, repsTarget: "10-12" }, // Seated Leg Curls
-    { exerciseId: 36, sets: 3, repsTarget: "10-12" }, // Weighted Step-Ups
-    { exerciseId: 28, sets: 4, repsTarget: "12-15" }, // Single Leg Weighted Calf Raise
+  8: [ // Upper (program_day_id: 8)
+    { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
+    { exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
+    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
+    { exerciseId: 33, sets: 3, repsTarget: "10-15" }, // Standing High To Low Cable Fly
+    { exerciseId: 9, sets: 3, repsTarget: "15-20" }, // Dumbbell Lateral Raise
+    { exerciseId: 32, sets: 3, repsTarget: "10" }, // Standing Face Pulls
+  ],
+  9: [ // Lower 1 (Quad Focus) (program_day_id: 9)
+    { exerciseId: 31, sets: 3, repsTarget: "8-10" }, // Smith Machine Squat
+    { exerciseId: 36, sets: 3, repsTarget: "8-10" }, // Weighted Step-Ups
+    { exerciseId: 28, sets: 3, repsTarget: "10-15" }, // Single Leg Weighted Calf Raise
+    { exerciseId: 27, sets: 2, repsTarget: "30" }, // Side Plank
+  ],
+  10: [ // Push (program_day_id: 10)
+    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
+    { exerciseId: 8, sets: 3, repsTarget: "8-10" }, // Dumbbell Fly
+    { exerciseId: 11, sets: 3, repsTarget: "10-15" }, // Flat Dumbbell Press
+    { exerciseId: 9, sets: 3, repsTarget: "8-10" }, // Dumbbell Lateral Raise
+    { exerciseId: 13, sets: 3, repsTarget: "12-15" }, // Incline DB Overhead Extensions
+    { exerciseId: 7, sets: 3, repsTarget: "15-20" }, // Cable Pushdowns
+  ],
+  11: [ // Pull (program_day_id: 11)
+    { exerciseId: 15, sets: 3, repsTarget: "8-10" }, // Kneeling Lat Pulldown
+    { exerciseId: 16, sets: 3, repsTarget: "6-12" }, // Lat Focused Cable Row
+    { exerciseId: 21, sets: 3, repsTarget: "10-12" }, // Rear Delt Cable Row
+    { exerciseId: 14, sets: 3, repsTarget: "12-15" }, // Incline Dumbbell Curls
+    { exerciseId: 12, sets: 3, repsTarget: "8-10" }, // Hammer Curls
+    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
+  ],
+  12: [ // Lower 2 (Glute Focus) (program_day_id: 12)
+    { exerciseId: 3, sets: 3, repsTarget: "8-10" }, // Barbell Deadlift
+    { exerciseId: 29, sets: 3, repsTarget: "8-10" }, // Single-Leg Leg Press
+    { exerciseId: 30, sets: 3, repsTarget: "10-15" }, // Smith Machine Hip Thrust
+    { exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
   ],
 };
 
