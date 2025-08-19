@@ -209,7 +209,49 @@ export const mockExerciseVariations: ExerciseVariation[] = [
   { id: 38, exercise_id: 24, variation_index: 1, variation_name: "Seated DB Shoulder Press", youtube_url: "https://youtu.be/qEwKCR5JCog" },
   { id: 39, exercise_id: 24, variation_index: 2, variation_name: "Standing DB Press", youtube_url: "https://youtu.be/qEwKCR5JCog" },
   { id: 40, exercise_id: 24, variation_index: 3, variation_name: "Arnold Press", youtube_url: "https://youtu.be/6Z15_WdXmVw" },
-  { id: 41, exercise_id: 24, variation_index: 4, variation_name: "Military Press", youtube_url: "https://youtu.be/2yjwXTZQDDI" }
+  { id: 41, exercise_id: 24, variation_index: 4, variation_name: "Military Press", youtube_url: "https://youtu.be/2yjwXTZQDDI" },
+  
+  // Dumbbell Fly (id: 8)
+  { id: 42, exercise_id: 8, variation_index: 1, variation_name: "Flat Dumbbell Fly", youtube_url: "https://youtu.be/eozdVDA78K0" },
+  { id: 43, exercise_id: 8, variation_index: 2, variation_name: "Incline Dumbbell Fly", youtube_url: "https://youtu.be/Z57CtFmRMxA" },
+  { id: 44, exercise_id: 8, variation_index: 3, variation_name: "Cable Fly", youtube_url: "https://youtu.be/Iwe6AmxVf7o" },
+  
+  // Dumbbell Lateral Raise (id: 9)
+  { id: 45, exercise_id: 9, variation_index: 1, variation_name: "Dumbbell Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
+  { id: 46, exercise_id: 9, variation_index: 2, variation_name: "Cable Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
+  { id: 47, exercise_id: 9, variation_index: 3, variation_name: "Machine Lateral Raise", youtube_url: "https://youtu.be/3VcKaXpzqRo" },
+  
+  // Dumbbell Romanian Deadlift (id: 10)
+  { id: 48, exercise_id: 10, variation_index: 1, variation_name: "Dumbbell Romanian Deadlift", youtube_url: "https://youtu.be/2SHsk9AzdjA" },
+  { id: 49, exercise_id: 10, variation_index: 2, variation_name: "Single Leg RDL", youtube_url: "https://youtu.be/2SHsk9AzdjA" },
+  { id: 50, exercise_id: 10, variation_index: 3, variation_name: "Barbell Romanian Deadlift", youtube_url: "https://youtu.be/3Z3C44SXSQE" },
+  
+  // Seated Cable Row (id: 22)
+  { id: 51, exercise_id: 22, variation_index: 1, variation_name: "Seated Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
+  { id: 52, exercise_id: 22, variation_index: 2, variation_name: "Wide Grip Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
+  { id: 53, exercise_id: 22, variation_index: 3, variation_name: "V-Bar Cable Row", youtube_url: "https://youtu.be/xQNrFHEMhI4" },
+  
+  // Quad-Focused Leg Press (id: 20)
+  { id: 54, exercise_id: 20, variation_index: 1, variation_name: "Leg Press", youtube_url: "https://youtu.be/IZxyjW7MPJQ" },
+  { id: 55, exercise_id: 20, variation_index: 2, variation_name: "Single Leg Press", youtube_url: "https://youtu.be/IZxyjW7MPJQ" },
+  { id: 56, exercise_id: 20, variation_index: 3, variation_name: "Hack Squat", youtube_url: "https://youtu.be/EdtaJRBqEYI" },
+  
+  // Seated Leg Extensions (id: 26)
+  { id: 57, exercise_id: 26, variation_index: 1, variation_name: "Seated Leg Extensions", youtube_url: "https://youtu.be/YyvSfVjQeL0" },
+  { id: 58, exercise_id: 26, variation_index: 2, variation_name: "Single Leg Extensions", youtube_url: "https://youtu.be/YyvSfVjQeL0" },
+  
+  // Lying Leg Curls (id: 19)
+  { id: 59, exercise_id: 19, variation_index: 1, variation_name: "Lying Leg Curls", youtube_url: "https://youtu.be/ELOCsoDSmrg" },
+  { id: 60, exercise_id: 19, variation_index: 2, variation_name: "Single Leg Curls", youtube_url: "https://youtu.be/ELOCsoDSmrg" },
+  
+  // Standing Face Pulls (id: 32)
+  { id: 61, exercise_id: 32, variation_index: 1, variation_name: "Cable Face Pulls", youtube_url: "https://youtu.be/rep-qVOkqgk" },
+  { id: 62, exercise_id: 32, variation_index: 2, variation_name: "Band Face Pulls", youtube_url: "https://youtu.be/rep-qVOkqgk" },
+  
+  // Walking Lunges (id: 35)
+  { id: 63, exercise_id: 35, variation_index: 1, variation_name: "Walking Lunges", youtube_url: "https://youtu.be/L8fvypPrzzs" },
+  { id: 64, exercise_id: 35, variation_index: 2, variation_name: "Reverse Lunges", youtube_url: "https://youtu.be/L8fvypPrzzs" },
+  { id: 65, exercise_id: 35, variation_index: 3, variation_name: "Bulgarian Split Squat", youtube_url: "https://youtu.be/2C-uNgKwPLE" }
 ];
 
 // Mock user para desenvolvimento
@@ -244,7 +286,22 @@ export const mockLastSetCache: LastSetCache[] = [
   { user_id: "mock-user-123", exercise_id: 24, variation_index: 1, weight_kg: 18, reps: 12, rest_sec: 120, updated_at: new Date().toISOString() },
   { user_id: "mock-user-123", exercise_id: 27, variation_index: 1, weight_kg: 0, reps: 45, rest_sec: 60, updated_at: new Date().toISOString() },
   { user_id: "mock-user-123", exercise_id: 32, variation_index: 1, weight_kg: 15, reps: 15, rest_sec: 90, updated_at: new Date().toISOString() },
-  { user_id: "mock-user-123", exercise_id: 34, variation_index: 1, weight_kg: 20, reps: 15, rest_sec: 90, updated_at: new Date().toISOString() }
+  { user_id: "mock-user-123", exercise_id: 34, variation_index: 1, weight_kg: 20, reps: 15, rest_sec: 90, updated_at: new Date().toISOString() },
+  // Exercícios adicionais dos programas de 4 e 5 dias
+  { user_id: "mock-user-123", exercise_id: 8, variation_index: 1, weight_kg: 15, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 10, variation_index: 1, weight_kg: 30, reps: 10, rest_sec: 120, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 16, variation_index: 1, weight_kg: 45, reps: 10, rest_sec: 120, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 20, variation_index: 1, weight_kg: 120, reps: 12, rest_sec: 120, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 21, variation_index: 1, weight_kg: 12, reps: 15, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 22, variation_index: 1, weight_kg: 50, reps: 10, rest_sec: 120, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 25, variation_index: 1, weight_kg: 40, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 26, variation_index: 1, weight_kg: 35, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 28, variation_index: 1, weight_kg: 15, reps: 15, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 29, variation_index: 1, weight_kg: 80, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 30, variation_index: 1, weight_kg: 60, reps: 10, rest_sec: 150, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 33, variation_index: 1, weight_kg: 12, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 35, variation_index: 1, weight_kg: 20, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 36, variation_index: 1, weight_kg: 25, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() }
 ];
 
 // Função para simular delay de API
