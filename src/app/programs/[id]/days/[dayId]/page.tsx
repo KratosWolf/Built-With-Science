@@ -42,23 +42,32 @@ interface ExerciseSetData {
 
 // Mock data para exercícios do dia (baseado no day_exercises.csv)
 const mockDayExercises = {
-  1: [ // Full Body A (program_day_id: 1)
+  1: [ // Full Body A (program_day_id: 1) - Expandido para treino mais completo
     { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
     { exerciseId: 10, sets: 3, repsTarget: "6-12" }, // Dumbbell Romanian Deadlift
     { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
     { exerciseId: 35, sets: 3, repsTarget: "8-10" }, // Walking Lunges (quad focus)
+    { exerciseId: 6, sets: 3, repsTarget: "12-15" }, // Cable Lateral Raise
+    { exerciseId: 12, sets: 2, repsTarget: "10-12" }, // Hammer Curls
+    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
   ],
-  2: [ // Full Body B (program_day_id: 2)
+  2: [ // Full Body B (program_day_id: 2) - Expandido para treino mais completo
     { exerciseId: 20, sets: 3, repsTarget: "8-10" }, // Quad-Focused Leg Press
     { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
     { exerciseId: 25, sets: 3, repsTarget: "10-15" }, // Seated Leg Curls
     { exerciseId: 13, sets: 3, repsTarget: "10-15" }, // Incline DB Overhead Extensions
+    { exerciseId: 22, sets: 3, repsTarget: "8-10" }, // Seated Cable Row (mid/upper back)
+    { exerciseId: 21, sets: 2, repsTarget: "12-15" }, // Rear Delt Cable Row
+    { exerciseId: 34, sets: 3, repsTarget: "12-15" }, // Standing Weighted Calf Raise
   ],
-  3: [ // Full Body C (program_day_id: 3)
+  3: [ // Full Body C (program_day_id: 3) - Expandido para treino mais completo
     { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
     { exerciseId: 26, sets: 3, repsTarget: "10-15" }, // Seated Leg Extensions
     { exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
     { exerciseId: 23, sets: 3, repsTarget: "10-15" }, // Seated Dumbbell Curls
+    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
+    { exerciseId: 16, sets: 3, repsTarget: "8-10" }, // Lat Focused Cable Row
+    { exerciseId: 32, sets: 2, repsTarget: "15-20" }, // Standing Face Pulls
   ],
   4: [ // Upper 1 (program_day_id: 4)
     { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
@@ -127,9 +136,10 @@ const mockDayExercises = {
   ],
 };
 
-export default function WorkoutPage({ params }: WorkoutPageProps) {
-  const programId = parseInt(params.id);
-  const dayId = parseInt(params.dayId);
+export default async function WorkoutPage({ params }: WorkoutPageProps) {
+  const resolvedParams = await params;
+  const programId = parseInt(resolvedParams.id);
+  const dayId = parseInt(resolvedParams.dayId);
   
   const program = getProgramById(programId);
   const programDays = getProgramDays(programId);
