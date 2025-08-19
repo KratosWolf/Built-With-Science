@@ -143,10 +143,16 @@ export const mockExercises: Exercise[] = [
   { id: 33, name: "Standing High To Low Cable Fly" },
   { id: 34, name: "Standing Weighted Calf Raise" },
   { id: 35, name: "Walking Lunges (quad focus)" },
-  { id: 36, name: "Weighted Step-Ups*" }
+  { id: 36, name: "Weighted Step-Ups*" },
+  // Novos exercícios para completar os programas
+  { id: 37, name: "Standing Mid-Chest Cable Fly" },
+  { id: 38, name: "Banded Hip Abductions" },
+  { id: 39, name: "RKC Plank" },
+  { id: 40, name: "Close-Grip Dumbbell Press" },
+  { id: 41, name: "Seated Weighted Calf Raise" }
 ];
 
-// Variações de exercícios baseadas no CSV original
+// Variações de exercícios baseadas no CSV original + novos exercícios
 export const mockExerciseVariations: ExerciseVariation[] = [
   { id: 1, exercise_id: 1, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/AWo-q7P-HZ0" },
   { id: 2, exercise_id: 2, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/pCGVSBk0bIQ" },
@@ -225,7 +231,13 @@ export const mockExerciseVariations: ExerciseVariation[] = [
   { id: 75, exercise_id: 33, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JfZjng7jAKs" },
   { id: 76, exercise_id: 34, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/q2Eigaa9dKU" },
   { id: 77, exercise_id: 35, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JB20RuTOaFc" },
-  { id: 78, exercise_id: 36, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Cjc3AgmdtlA" }
+  { id: 78, exercise_id: 36, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Cjc3AgmdtlA" },
+  // Novos exercícios
+  { id: 79, exercise_id: 37, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JfZjng7jAKs" },
+  { id: 80, exercise_id: 38, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/abc1fisYB3w" },
+  { id: 81, exercise_id: 39, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/R53nThQcdZo" },
+  { id: 82, exercise_id: 40, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/kpzUeELReEA" },
+  { id: 83, exercise_id: 41, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/cRKA_Qdut7I" }
 ];
 
 // Mock user para desenvolvimento
@@ -275,7 +287,13 @@ export const mockLastSetCache: LastSetCache[] = [
   { user_id: "mock-user-123", exercise_id: 30, variation_index: 1, weight_kg: 60, reps: 10, rest_sec: 150, updated_at: new Date().toISOString() },
   { user_id: "mock-user-123", exercise_id: 33, variation_index: 1, weight_kg: 12, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
   { user_id: "mock-user-123", exercise_id: 35, variation_index: 1, weight_kg: 20, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
-  { user_id: "mock-user-123", exercise_id: 36, variation_index: 1, weight_kg: 25, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() }
+  { user_id: "mock-user-123", exercise_id: 36, variation_index: 1, weight_kg: 25, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  // Novos exercícios
+  { user_id: "mock-user-123", exercise_id: 37, variation_index: 1, weight_kg: 12, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 38, variation_index: 1, weight_kg: 0, reps: 12, rest_sec: 60, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 39, variation_index: 1, weight_kg: 0, reps: 45, rest_sec: 60, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 40, variation_index: 1, weight_kg: 20, reps: 10, rest_sec: 120, updated_at: new Date().toISOString() },
+  { user_id: "mock-user-123", exercise_id: 41, variation_index: 1, weight_kg: 15, reps: 12, rest_sec: 90, updated_at: new Date().toISOString() }
 ];
 
 // Função para simular delay de API
@@ -294,6 +312,18 @@ export function getProgramDays(programId: number): ProgramDay[] {
 
 export function getExerciseById(id: number): Exercise | undefined {
   return mockExercises.find(e => e.id === id);
+}
+
+// Helper function to get exercise name with per leg/side notation
+export function getExerciseDisplayName(exerciseId: number, perLeg?: boolean, perSide?: boolean): string {
+  const exercise = getExerciseById(exerciseId);
+  if (!exercise) return 'Unknown Exercise';
+  
+  let name = exercise.name;
+  if (perLeg) name += ' per leg';
+  if (perSide) name += ' per side';
+  
+  return name;
 }
 
 export function getExerciseVariations(exerciseId: number): ExerciseVariation[] {

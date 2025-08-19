@@ -13,6 +13,8 @@ import {
   mockExerciseVariations,
   mockLastSetCache,
   getLastSet,
+  getExerciseById,
+  getExerciseDisplayName,
   type WorkoutSet,
   type ExerciseVariation 
 } from '@/lib/mock-data/workout-data';
@@ -34,104 +36,231 @@ interface ExerciseSetData {
     difficulty?: 'easy' | 'ok' | 'hard';
     rpe?: number;
   }>;
-  selectedVariation: number;
-  variations: ExerciseVariation[];
+  tutorialUrl: string;
+  isSuperset?: boolean;
+  supersetLabel?: string; // A1, A2, B1, B2
+  supersetGroup?: string; // A, B
 }
 
-// Mock data para exercícios do dia (baseado no day_exercises.csv)
-const mockDayExercises = {
-  1: [ // Full Body A (program_day_id: 1) - Expandido para treino mais completo
-    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
-    { exerciseId: 10, sets: 3, repsTarget: "6-12" }, // Dumbbell Romanian Deadlift
-    { exerciseId: 17, sets: 3, repsTarget: "8-10" }, // Lat Pulldown
-    { exerciseId: 35, sets: 3, repsTarget: "8-10" }, // Walking Lunges (quad focus)
-    { exerciseId: 6, sets: 3, repsTarget: "12-15" }, // Cable Lateral Raise
-    { exerciseId: 12, sets: 2, repsTarget: "10-12" }, // Hammer Curls
-    { exerciseId: 7, sets: 2, repsTarget: "10-12" }, // Cable Pushdowns
+// Novos exercícios necessários para os programas completos
+const additionalExercises = [
+  { id: 37, name: "Standing Mid-Chest Cable Fly" },
+  { id: 38, name: "Banded Hip Abductions" },
+  { id: 39, name: "RKC Plank" },
+  { id: 40, name: "Close-Grip Dumbbell Press" },
+  { id: 41, name: "Seated Weighted Calf Raise" }
+];
+
+// Estrutura para supersets
+interface SupersetGroup {
+  type: 'superset';
+  label: string; // A, B, etc.
+  exercises: Array<{
+    exerciseId: number;
+    sets: number;
+    repsTarget: string;
+    label: string; // A1, A2, B1, B2
+    perLeg?: boolean;
+    perSide?: boolean;
+  }>;
+}
+
+interface RegularExercise {
+  type: 'regular';
+  exerciseId: number;
+  sets: number;
+  repsTarget: string;
+  perLeg?: boolean;
+  perSide?: boolean;
+}
+
+type ExerciseGroup = SupersetGroup | RegularExercise;
+
+// Mock data para exercícios do dia baseado nos screenshots reais
+const mockDayExercises: Record<number, ExerciseGroup[]> = {
+  // 3-DAY PROGRAM
+  1: [ // Full Body A (8 exercícios)
+    { type: 'regular', exerciseId: 10, sets: 3, repsTarget: "8-10" }, // Dumbbell Romanian Deadlift
+    { type: 'regular', exerciseId: 17, sets: 3, repsTarget: "6-12" }, // Lat Pulldown
+    { type: 'regular', exerciseId: 35, sets: 3, repsTarget: "8-10", perLeg: true }, // Walking Lunges (quad focus)
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 37, sets: 3, repsTarget: "10-15", label: 'A1' }, // Standing Mid-Chest Cable Fly
+        { exerciseId: 9, sets: 3, repsTarget: "15-20", label: 'A2' } // Dumbbell Lateral Raise
+      ]
+    },
+    {
+      type: 'superset',
+      label: 'B',
+      exercises: [
+        { exerciseId: 28, sets: 3, repsTarget: "10-15", label: 'B1' }, // Single Leg Weighted Calf Raise
+        { exerciseId: 32, sets: 3, repsTarget: "1-10", label: 'B2' } // Standing Face Pulls
+      ]
+    }
   ],
-  2: [ // Full Body B (program_day_id: 2) - Expandido para treino mais completo
-    { exerciseId: 20, sets: 3, repsTarget: "8-10" }, // Quad-Focused Leg Press
-    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 25, sets: 3, repsTarget: "10-15" }, // Seated Leg Curls
-    { exerciseId: 13, sets: 3, repsTarget: "10-15" }, // Incline DB Overhead Extensions
-    { exerciseId: 22, sets: 3, repsTarget: "8-10" }, // Seated Cable Row (mid/upper back)
-    { exerciseId: 21, sets: 2, repsTarget: "12-15" }, // Rear Delt Cable Row
-    { exerciseId: 34, sets: 3, repsTarget: "12-15" }, // Standing Weighted Calf Raise
+  2: [ // Full Body B (8 exercícios)
+    { type: 'regular', exerciseId: 20, sets: 3, repsTarget: "8-10" }, // Quad-Focused Leg Press
+    { type: 'regular', exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { type: 'regular', exerciseId: 25, sets: 3, repsTarget: "10-15" }, // Seated Leg Curls
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 5, sets: 3, repsTarget: "10-12", label: 'A1' }, // Barbell Row (mid/upper back)
+        { exerciseId: 40, sets: 3, repsTarget: "10+", label: 'A2' } // Close-Grip Dumbbell Press
+      ]
+    },
+    { type: 'regular', exerciseId: 13, sets: 3, repsTarget: "10-15" }, // Incline DB Overhead Extensions
+    {
+      type: 'superset',
+      label: 'B',
+      exercises: [
+        { exerciseId: 41, sets: 3, repsTarget: "10-15", label: 'B1' }, // Seated Weighted Calf Raise
+        { exerciseId: 39, sets: 3, repsTarget: "30-60s", label: 'B2' } // RKC Plank
+      ]
+    }
   ],
-  3: [ // Full Body C (program_day_id: 3) - Expandido para treino mais completo
-    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
-    { exerciseId: 26, sets: 3, repsTarget: "10-15" }, // Seated Leg Extensions
-    { exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
-    { exerciseId: 23, sets: 3, repsTarget: "10-15" }, // Seated Dumbbell Curls
-    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 16, sets: 3, repsTarget: "8-10" }, // Lat Focused Cable Row
-    { exerciseId: 32, sets: 2, repsTarget: "15-20" }, // Standing Face Pulls
+  3: [ // Full Body C (8 exercícios)
+    { type: 'regular', exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 18, sets: 3, repsTarget: "10-12", label: 'A1' }, // Low Incline Dumbbell Press
+        { exerciseId: 5, sets: 3, repsTarget: "10-12", label: 'A2' } // Barbell Row (mid/upper back)
+      ]
+    },
+    { type: 'regular', exerciseId: 26, sets: 3, repsTarget: "10-15" }, // Seated Leg Extensions
+    { type: 'regular', exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
+    { type: 'regular', exerciseId: 23, sets: 3, repsTarget: "10-15" }, // Seated Dumbbell Curls
+    {
+      type: 'superset',
+      label: 'B',
+      exercises: [
+        { exerciseId: 32, sets: 3, repsTarget: "1-10", label: 'B1' }, // Standing Face Pulls
+        { exerciseId: 27, sets: 3, repsTarget: "1-5", label: 'B2', perSide: true } // Side Plank
+      ]
+    }
   ],
-  4: [ // Upper 1 (program_day_id: 4)
-    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
-    { exerciseId: 17, sets: 3, repsTarget: "6-12" }, // Lat Pulldown
-    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 8, sets: 3, repsTarget: "10-15" }, // Dumbbell Fly
-    { exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
-    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
+
+  // 4-DAY PROGRAM
+  4: [ // Upper 1 (8 exercícios)
+    { type: 'regular', exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { type: 'regular', exerciseId: 17, sets: 3, repsTarget: "6-12" }, // Lat Pulldown
+    { type: 'regular', exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { type: 'regular', exerciseId: 8, sets: 3, repsTarget: "10-15" }, // Dumbbell Fly
+    { type: 'regular', exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 14, sets: 3, repsTarget: "8-10", label: 'A1' }, // Incline Dumbbell Curls
+        { exerciseId: 9, sets: 3, repsTarget: "15-20", label: 'A2' } // Dumbbell Lateral Raise
+      ]
+    },
+    { type: 'regular', exerciseId: 32, sets: 3, repsTarget: "1-10" } // Standing Face Pulls
   ],
-  5: [ // Lower 1 (Quad Focus) (program_day_id: 5)
-    { exerciseId: 1, sets: 3, repsTarget: "8-10" }, // Barbell Back Squat
-    { exerciseId: 35, sets: 3, repsTarget: "8-10" }, // Walking Lunges (quad focus)
-    { exerciseId: 34, sets: 3, repsTarget: "10-15" }, // Standing Weighted Calf Raise
-    { exerciseId: 27, sets: 2, repsTarget: "30" }, // Side Plank
+  5: [ // Lower 1 (Quad Focus) (7 exercícios)
+    { type: 'regular', exerciseId: 1, sets: 3, repsTarget: "8-10" }, // Barbell Back Squat
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 10, sets: 3, repsTarget: "8-10", label: 'A1' }, // Dumbbell Romanian Deadlift
+        { exerciseId: 26, sets: 3, repsTarget: "10-15", label: 'A2' } // Seated Leg Extensions
+      ]
+    },
+    { type: 'regular', exerciseId: 35, sets: 3, repsTarget: "8-10", perLeg: true }, // Walking Lunges (quad focus)
+    { type: 'regular', exerciseId: 34, sets: 3, repsTarget: "10-15" }, // Standing Weighted Calf Raise
+    { type: 'regular', exerciseId: 27, sets: 2, repsTarget: "30s", perSide: true } // Side Plank
   ],
-  6: [ // Upper 2 (program_day_id: 6)
-    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 16, sets: 3, repsTarget: "10-12" }, // Lat Focused Cable Row
-    { exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
-    { exerciseId: 21, sets: 3, repsTarget: "12-15" }, // Rear Delt Cable Row
-    { exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
-    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
+  6: [ // Upper 2 (8 exercícios)
+    { type: 'regular', exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
+    { type: 'regular', exerciseId: 16, sets: 3, repsTarget: "10-12" }, // Lat Focused Cable Row
+    { type: 'regular', exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { type: 'regular', exerciseId: 21, sets: 3, repsTarget: "12-15" }, // Rear Delt Cable Row
+    { type: 'regular', exerciseId: 6, sets: 3, repsTarget: "15-20" }, // Cable Lateral Raise
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 12, sets: 3, repsTarget: "8-10", label: 'A1' }, // Hammer Curls
+        { exerciseId: 13, sets: 3, repsTarget: "10-15", label: 'A2' } // Incline DB Overhead Extensions
+      ]
+    },
+    { type: 'regular', exerciseId: 32, sets: 3, repsTarget: "1-10" } // Standing Face Pulls
   ],
-  7: [ // Lower 2 (Glute Focus) (program_day_id: 7)
-    { exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
-    { exerciseId: 29, sets: 3, repsTarget: "8-10" }, // Single-Leg Leg Press
-    { exerciseId: 4, sets: 3, repsTarget: "10-15" }, // Barbell Hip Thrust
-    { exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
+  7: [ // Lower 2 (Glute Focus) (6 exercícios)
+    { type: 'regular', exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+    { type: 'regular', exerciseId: 29, sets: 3, repsTarget: "8-10", perLeg: true }, // Single-Leg Leg Press
+    { type: 'regular', exerciseId: 4, sets: 3, repsTarget: "10-15" }, // Barbell Hip Thrust
+    { type: 'regular', exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 38, sets: 3, repsTarget: "1-12", label: 'A1' }, // Banded Hip Abductions
+        { exerciseId: 41, sets: 3, repsTarget: "8-10", label: 'A2' } // Seated Weighted Calf Raise
+      ]
+    }
   ],
-  8: [ // Upper (program_day_id: 8)
-    { exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
-    { exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
-    { exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
-    { exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
-    { exerciseId: 33, sets: 3, repsTarget: "10-15" }, // Standing High To Low Cable Fly
-    { exerciseId: 9, sets: 3, repsTarget: "15-20" }, // Dumbbell Lateral Raise
-    { exerciseId: 32, sets: 3, repsTarget: "10" }, // Standing Face Pulls
+
+  // 5-DAY PROGRAM
+  8: [ // Upper (7 exercícios)
+    { type: 'regular', exerciseId: 2, sets: 3, repsTarget: "8-10" }, // Barbell Bench Press
+    { type: 'regular', exerciseId: 22, sets: 3, repsTarget: "10-12" }, // Seated Cable Row (mid/upper back)
+    { type: 'regular', exerciseId: 24, sets: 3, repsTarget: "6-8" }, // Seated Dumbbell Shoulder Press
+    { type: 'regular', exerciseId: 5, sets: 3, repsTarget: "8-10" }, // Barbell Row (lat focus)
+    { type: 'regular', exerciseId: 33, sets: 3, repsTarget: "10-15" }, // Standing High To Low Cable Fly
+    { type: 'regular', exerciseId: 9, sets: 3, repsTarget: "15-20" }, // Dumbbell Lateral Raise
+    { type: 'regular', exerciseId: 32, sets: 3, repsTarget: "10" } // Standing Face Pulls
   ],
-  9: [ // Lower 1 (Quad Focus) (program_day_id: 9)
-    { exerciseId: 31, sets: 3, repsTarget: "8-10" }, // Smith Machine Squat
-    { exerciseId: 36, sets: 3, repsTarget: "8-10" }, // Weighted Step-Ups
-    { exerciseId: 28, sets: 3, repsTarget: "10-15" }, // Single Leg Weighted Calf Raise
-    { exerciseId: 27, sets: 2, repsTarget: "30" }, // Side Plank
+  9: [ // Lower 1 (Quad Focus) (6 exercícios)
+    { type: 'regular', exerciseId: 31, sets: 3, repsTarget: "8-10" }, // Smith Machine Squat
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 10, sets: 3, repsTarget: "8-10", label: 'A1' }, // Dumbbell Romanian Deadlift
+        { exerciseId: 26, sets: 3, repsTarget: "10-15", label: 'A2' } // Seated Leg Extensions
+      ]
+    },
+    { type: 'regular', exerciseId: 36, sets: 3, repsTarget: "8-10", perLeg: true }, // Weighted Step-Ups
+    { type: 'regular', exerciseId: 28, sets: 3, repsTarget: "10-15" }, // Single Leg Weighted Calf Raise
+    { type: 'regular', exerciseId: 27, sets: 2, repsTarget: "30s", perSide: true } // Side Plank
   ],
-  10: [ // Push (program_day_id: 10)
-    { exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
-    { exerciseId: 8, sets: 3, repsTarget: "8-10" }, // Dumbbell Fly
-    { exerciseId: 11, sets: 3, repsTarget: "10-15" }, // Flat Dumbbell Press
-    { exerciseId: 9, sets: 3, repsTarget: "8-10" }, // Dumbbell Lateral Raise
-    { exerciseId: 13, sets: 3, repsTarget: "12-15" }, // Incline DB Overhead Extensions
-    { exerciseId: 7, sets: 3, repsTarget: "15-20" }, // Cable Pushdowns
+  10: [ // Push (6 exercícios)
+    { type: 'regular', exerciseId: 18, sets: 3, repsTarget: "8-10" }, // Low Incline Dumbbell Press
+    { type: 'regular', exerciseId: 8, sets: 3, repsTarget: "10-15" }, // Dumbbell Fly
+    { type: 'regular', exerciseId: 11, sets: 3, repsTarget: "8-10" }, // Flat Dumbbell Press
+    { type: 'regular', exerciseId: 9, sets: 3, repsTarget: "15-20" }, // Dumbbell Lateral Raise
+    { type: 'regular', exerciseId: 13, sets: 3, repsTarget: "10-15" }, // Incline DB Overhead Extensions
+    { type: 'regular', exerciseId: 7, sets: 3, repsTarget: "8-10" } // Cable Pushdowns
   ],
-  11: [ // Pull (program_day_id: 11)
-    { exerciseId: 15, sets: 3, repsTarget: "8-10" }, // Kneeling Lat Pulldown
-    { exerciseId: 16, sets: 3, repsTarget: "6-12" }, // Lat Focused Cable Row
-    { exerciseId: 21, sets: 3, repsTarget: "10-12" }, // Rear Delt Cable Row
-    { exerciseId: 14, sets: 3, repsTarget: "12-15" }, // Incline Dumbbell Curls
-    { exerciseId: 12, sets: 3, repsTarget: "8-10" }, // Hammer Curls
-    { exerciseId: 32, sets: 2, repsTarget: "10" }, // Standing Face Pulls
+  11: [ // Pull (6 exercícios)
+    { type: 'regular', exerciseId: 15, sets: 3, repsTarget: "6-12" }, // Kneeling Lat Pulldown
+    { type: 'regular', exerciseId: 16, sets: 3, repsTarget: "10-12" }, // Lat Focused Cable Row
+    { type: 'regular', exerciseId: 21, sets: 3, repsTarget: "12-15" }, // Rear Delt Cable Row
+    { type: 'regular', exerciseId: 14, sets: 3, repsTarget: "8-10" }, // Incline Dumbbell Curls
+    { type: 'regular', exerciseId: 12, sets: 3, repsTarget: "8-10" }, // Hammer Curls
+    { type: 'regular', exerciseId: 32, sets: 2, repsTarget: "10" } // Standing Face Pulls
   ],
-  12: [ // Lower 2 (Glute Focus) (program_day_id: 12)
-    { exerciseId: 3, sets: 3, repsTarget: "8-10" }, // Barbell Deadlift
-    { exerciseId: 29, sets: 3, repsTarget: "8-10" }, // Single-Leg Leg Press
-    { exerciseId: 30, sets: 3, repsTarget: "10-15" }, // Smith Machine Hip Thrust
-    { exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
-  ],
+  12: [ // Lower 2 (Glute Focus) (6 exercícios)
+    { type: 'regular', exerciseId: 3, sets: 3, repsTarget: "6-8" }, // Barbell Deadlift
+    { type: 'regular', exerciseId: 29, sets: 3, repsTarget: "8-10", perLeg: true }, // Single-Leg Leg Press
+    { type: 'regular', exerciseId: 30, sets: 3, repsTarget: "10-15" }, // Smith Machine Hip Thrust
+    { type: 'regular', exerciseId: 19, sets: 3, repsTarget: "10-15" }, // Lying Leg Curls
+    {
+      type: 'superset',
+      label: 'A',
+      exercises: [
+        { exerciseId: 38, sets: 3, repsTarget: "1-12", label: 'A1' }, // Banded Hip Abductions
+        { exerciseId: 41, sets: 3, repsTarget: "8-10", label: 'A2' } // Seated Weighted Calf Raise
+      ]
+    }
+  ]
 };
 
 export default function WorkoutPage() {
@@ -154,28 +283,57 @@ export default function WorkoutPage() {
     if (!currentDay) return;
     
     // Buscar exercícios para este dia (mock data)
-    const dayExercises = mockDayExercises[dayId as keyof typeof mockDayExercises] || [];
+    const dayExerciseGroups = mockDayExercises[dayId] || [];
     
-    const initialData: ExerciseSetData[] = dayExercises.map(dayEx => {
-      const exercise = mockExercises.find(e => e.id === dayEx.exerciseId);
-      const variations = mockExerciseVariations.filter(v => v.exercise_id === dayEx.exerciseId);
-      
-      return {
-        exerciseId: dayEx.exerciseId,
-        exerciseName: exercise?.name || 'Unknown Exercise',
-        targetReps: dayEx.repsTarget,
-        sets: Array.from({ length: dayEx.sets }, (_, i) => ({
-          setNumber: i + 1,
-          weight: undefined,
-          reps: undefined,
-          restMinutes: undefined,
-          restSeconds: undefined,
-          difficulty: undefined,
-          rpe: undefined,
-        })),
-        selectedVariation: 1,
-        variations: variations,
-      };
+    const initialData: ExerciseSetData[] = [];
+    
+    dayExerciseGroups.forEach(group => {
+      if (group.type === 'regular') {
+        const exercise = getExerciseById(group.exerciseId);
+        const variations = mockExerciseVariations.filter(v => v.exercise_id === group.exerciseId);
+        
+        initialData.push({
+          exerciseId: group.exerciseId,
+          exerciseName: getExerciseDisplayName(group.exerciseId, group.perLeg, group.perSide),
+          targetReps: group.repsTarget,
+          sets: Array.from({ length: group.sets }, (_, i) => ({
+            setNumber: i + 1,
+            weight: undefined,
+            reps: undefined,
+            restMinutes: undefined,
+            restSeconds: undefined,
+            difficulty: undefined,
+            rpe: undefined,
+          })),
+          tutorialUrl: variations[0]?.youtube_url || '#',
+          isSuperset: false
+        });
+      } else if (group.type === 'superset') {
+        // Add each exercise in the superset
+        group.exercises.forEach(supersetEx => {
+          const exercise = getExerciseById(supersetEx.exerciseId);
+          const variations = mockExerciseVariations.filter(v => v.exercise_id === supersetEx.exerciseId);
+          
+          initialData.push({
+            exerciseId: supersetEx.exerciseId,
+            exerciseName: getExerciseDisplayName(supersetEx.exerciseId, supersetEx.perLeg, supersetEx.perSide),
+            targetReps: supersetEx.repsTarget,
+            sets: Array.from({ length: supersetEx.sets }, (_, i) => ({
+              setNumber: i + 1,
+              weight: undefined,
+              reps: undefined,
+              restMinutes: undefined,
+              restSeconds: undefined,
+              difficulty: undefined,
+              rpe: undefined,
+            })),
+            tutorialUrl: variations[0]?.youtube_url || '#',
+            isSuperset: true,
+            supersetLabel: supersetEx.label,
+            supersetGroup: group.label
+          });
+        });
+      }
     });
     
     setExerciseData(initialData);
@@ -251,20 +409,31 @@ export default function WorkoutPage() {
                 🏋️ Ready to Start?
               </CardTitle>
               <CardDescription>
-                This workout contains {exerciseData.length} exercises. Make sure you have your equipment ready!
+                This workout contains {exerciseData.length} exercises{exerciseData.some(e => e.isSuperset) ? ' (including supersets)' : ''}. Make sure you have your equipment ready!
               </CardDescription>
             </CardHeader>
           </Card>
 
           <div className="space-y-4 mb-8">
             {exerciseData.map((exercise, index) => (
-              <div key={exercise.exerciseId} className="flex items-center gap-4 p-4 bg-gray-50 rounded-lg">
-                <div className="w-8 h-8 bg-blue-500 text-white rounded-full flex items-center justify-center font-semibold">
-                  {index + 1}
+              <div key={`${exercise.exerciseId}-${index}`} className={`flex items-center gap-4 p-4 rounded-lg ${
+                exercise.isSuperset ? 'bg-blue-50 border-l-4 border-blue-500' : 'bg-gray-50'
+              }`}>
+                <div className={`w-8 h-8 text-white rounded-full flex items-center justify-center font-semibold text-sm ${
+                  exercise.isSuperset ? 'bg-blue-600' : 'bg-gray-500'
+                }`}>
+                  {exercise.isSuperset ? exercise.supersetLabel : index + 1}
                 </div>
                 <div className="flex-1">
-                  <h3 className="font-semibold">{exercise.exerciseName}</h3>
-                  <p className="text-sm text-gray-600">{exercise.sets.length} sets</p>
+                  <h3 className="font-semibold">
+                    {exercise.exerciseName}
+                    {exercise.isSuperset && (
+                      <span className="ml-2 text-xs bg-blue-100 text-blue-800 px-2 py-1 rounded">
+                        Superset {exercise.supersetGroup}
+                      </span>
+                    )}
+                  </h3>
+                  <p className="text-sm text-gray-600">{exercise.sets.length} sets • {exercise.targetReps} reps</p>
                 </div>
               </div>
             ))}
@@ -313,7 +482,21 @@ export default function WorkoutPage() {
       {/* Exercise Progress */}
       <div className="mb-6">
         <div className="flex items-center justify-between mb-2">
-          <h1 className="text-2xl font-bold">{currentExercise.exerciseName}</h1>
+          <div>
+            <h1 className="text-2xl font-bold">
+              {currentExercise.isSuperset && (
+                <span className="inline-block bg-blue-100 text-blue-800 text-sm font-semibold px-2 py-1 rounded mr-2">
+                  {currentExercise.supersetLabel}
+                </span>
+              )}
+              {currentExercise.exerciseName}
+            </h1>
+            {currentExercise.isSuperset && (
+              <p className="text-sm text-gray-600 mt-1">
+                Superset {currentExercise.supersetGroup} - Perform back-to-back with minimal rest
+              </p>
+            )}
+          </div>
           <span className="text-sm text-gray-600">
             Exercise {currentExerciseIndex + 1} of {exerciseData.length}
           </span>
@@ -326,41 +509,25 @@ export default function WorkoutPage() {
         </div>
       </div>
 
-      {/* Exercise Variations */}
+      {/* Exercise Tutorial */}
       <Card className="mb-6">
         <CardHeader>
-          <CardTitle className="text-lg">Exercise Variation</CardTitle>
+          <CardTitle className="text-lg">Tutorial Video</CardTitle>
         </CardHeader>
         <CardContent>
-          <div className="space-y-4">
-            {currentExercise.variations.map((variation) => (
-              <div key={variation.id} className="flex items-center justify-between p-3 border rounded-lg">
-                <div>
-                  <p className="font-medium">{variation.variation_name}</p>
-                  <a 
-                    href={variation.youtube_url} 
-                    target="_blank" 
-                    rel="noopener noreferrer"
-                    className="text-sm text-blue-600 hover:text-blue-800"
-                  >
-                    Watch Tutorial →
-                  </a>
-                </div>
-                <Button
-                  variant={currentExercise.selectedVariation === variation.variation_index ? "default" : "outline"}
-                  size="sm"
-                  onClick={() => {
-                    setExerciseData(prev => {
-                      const updated = [...prev];
-                      updated[currentExerciseIndex].selectedVariation = variation.variation_index;
-                      return updated;
-                    });
-                  }}
-                >
-                  {currentExercise.selectedVariation === variation.variation_index ? "Selected" : "Select"}
-                </Button>
-              </div>
-            ))}
+          <div className="flex items-center justify-between p-4 border rounded-lg bg-blue-50">
+            <div>
+              <p className="font-medium text-blue-900">{currentExercise.exerciseName}</p>
+              <p className="text-sm text-blue-700 mt-1">Official tutorial for proper form and technique</p>
+            </div>
+            <a 
+              href={currentExercise.tutorialUrl} 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="inline-flex items-center gap-2 bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition-colors"
+            >
+              🎥 Watch Tutorial
+            </a>
           </div>
         </CardContent>
       </Card>
@@ -371,7 +538,7 @@ export default function WorkoutPage() {
           exerciseId={currentExercise.exerciseId}
           exerciseName={currentExercise.exerciseName}
           targetReps={currentExercise.targetReps}
-          lastSet={getLastSet('mock-user-123', currentExercise.exerciseId, currentExercise.selectedVariation)}
+          lastSet={getLastSet('mock-user-123', currentExercise.exerciseId, 1)}
           onAcceptSuggestion={(weight, reps) => {
             updateSet(currentExerciseIndex, 0, 'weight', weight);
             updateSet(currentExerciseIndex, 0, 'reps', reps);
@@ -414,26 +581,37 @@ export default function WorkoutPage() {
                 </div>
               </div>
 
-              <div className="grid grid-cols-2 gap-4">
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Rest (min)</label>
-                  <Input
-                    type="number"
-                    placeholder="0"
-                    value={set.restMinutes || ''}
-                    onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'restMinutes', parseInt(e.target.value) || undefined)}
-                  />
+              {!currentExercise.isSuperset && (
+                <div className="grid grid-cols-2 gap-4">
+                  <div>
+                    <label className="text-sm font-medium text-gray-700">Rest (min)</label>
+                    <Input
+                      type="number"
+                      placeholder="0"
+                      value={set.restMinutes || ''}
+                      onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'restMinutes', parseInt(e.target.value) || undefined)}
+                    />
+                  </div>
+                  <div>
+                    <label className="text-sm font-medium text-gray-700">Rest (sec)</label>
+                    <Input
+                      type="number"
+                      placeholder="0"
+                      value={set.restSeconds || ''}
+                      onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'restSeconds', parseInt(e.target.value) || undefined)}
+                    />
+                  </div>
                 </div>
-                <div>
-                  <label className="text-sm font-medium text-gray-700">Rest (sec)</label>
-                  <Input
-                    type="number"
-                    placeholder="0"
-                    value={set.restSeconds || ''}
-                    onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'restSeconds', parseInt(e.target.value) || undefined)}
-                  />
+              )}
+              
+              {currentExercise.isSuperset && (
+                <div className="bg-blue-50 p-3 rounded-lg">
+                  <p className="text-sm text-blue-800 font-medium">🔄 Superset Exercise</p>
+                  <p className="text-xs text-blue-600 mt-1">
+                    Complete this set, then immediately move to the next exercise in this superset with minimal rest.
+                  </p>
                 </div>
-              </div>
+              )}
 
               <div>
                 <label className="text-sm font-medium text-gray-700">Difficulty</label>
@@ -451,7 +629,7 @@ export default function WorkoutPage() {
                 </div>
               </div>
 
-              {set.restMinutes || set.restSeconds ? (
+              {!currentExercise.isSuperset && (set.restMinutes || set.restSeconds) && (
                 <Button
                   onClick={() => startRest(set.restMinutes || 0, set.restSeconds || 0)}
                   className="w-full"
@@ -459,7 +637,7 @@ export default function WorkoutPage() {
                 >
                   Start Rest Timer ({(set.restMinutes || 0)}:{(set.restSeconds || 0).toString().padStart(2, '0')})
                 </Button>
-              ) : null}
+              )}
             </CardContent>
           </Card>
         ))}
@@ -493,7 +671,13 @@ export default function WorkoutPage() {
           disabled={currentExerciseIndex === exerciseData.length - 1}
           className="flex-1"
         >
-          Next Exercise
+          {/* Check if next exercise is part of the same superset */}
+          {currentExercise.isSuperset && 
+           currentExerciseIndex < exerciseData.length - 1 && 
+           exerciseData[currentExerciseIndex + 1].supersetGroup === currentExercise.supersetGroup
+            ? 'Next in Superset'
+            : 'Next Exercise'
+          }
           <ArrowRight className="h-4 w-4 ml-2" />
         </Button>
       </div>
