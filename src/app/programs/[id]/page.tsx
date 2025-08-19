@@ -8,8 +8,9 @@ interface ProgramDetailPageProps {
   params: { id: string };
 }
 
-export default function ProgramDetailPage({ params }: ProgramDetailPageProps) {
-  const programId = parseInt(params.id);
+export default async function ProgramDetailPage({ params }: ProgramDetailPageProps) {
+  const resolvedParams = await params;
+  const programId = parseInt(resolvedParams.id);
   const program = getProgramById(programId);
   const programDays = getProgramDays(programId).sort((a, b) => a.day_index - b.day_index);
 
