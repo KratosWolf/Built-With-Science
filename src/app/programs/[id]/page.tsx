@@ -11,7 +11,7 @@ interface ProgramDetailPageProps {
 export default function ProgramDetailPage({ params }: ProgramDetailPageProps) {
   const programId = parseInt(params.id);
   const program = getProgramById(programId);
-  const programDays = getProgramDays(programId);
+  const programDays = getProgramDays(programId).sort((a, b) => a.day_index - b.day_index);
 
   if (!program) {
     notFound();

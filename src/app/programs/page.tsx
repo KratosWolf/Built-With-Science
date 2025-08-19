@@ -15,7 +15,7 @@ export default function ProgramsPage() {
 
       <div className="grid gap-6 md:grid-cols-3">
         {mockPrograms.map((program) => {
-          const programDays = mockProgramDays.filter(pd => pd.program_id === program.id);
+          const programDays = mockProgramDays.filter(pd => pd.program_id === program.id).sort((a, b) => a.day_index - b.day_index);
           
           return (
             <Card key={program.id} className="hover:shadow-lg transition-shadow">
