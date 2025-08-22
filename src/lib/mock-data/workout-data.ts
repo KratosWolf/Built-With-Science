@@ -144,12 +144,21 @@ export const mockExercises: Exercise[] = [
   { id: 34, name: "Standing Weighted Calf Raise" },
   { id: 35, name: "Walking Lunges (quad focus)" },
   { id: 36, name: "Weighted Step-Ups*" },
-  // Novos exercícios para completar os programas
+  // Exercícios adicionais importantes para programas completos
   { id: 37, name: "Standing Mid-Chest Cable Fly" },
   { id: 38, name: "Banded Hip Abductions" },
   { id: 39, name: "RKC Plank" },
   { id: 40, name: "Close-Grip Dumbbell Press" },
-  { id: 41, name: "Seated Weighted Calf Raise" }
+  { id: 41, name: "Seated Weighted Calf Raise" },
+  { id: 42, name: "Bulgarian Split Squat" },
+  { id: 43, name: "Pull-ups/Chin-ups" },
+  { id: 44, name: "Push-ups" },
+  { id: 45, name: "Overhead Press" },
+  { id: 46, name: "Cable Face Pulls" },
+  { id: 47, name: "Goblet Squat" },
+  { id: 48, name: "Tricep Dips" },
+  { id: 49, name: "Plank" },
+  { id: 50, name: "Mountain Climbers" }
 ];
 
 // Variações de exercícios baseadas no CSV original + novos exercícios
@@ -234,10 +243,29 @@ export const mockExerciseVariations: ExerciseVariation[] = [
   { id: 78, exercise_id: 36, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/Cjc3AgmdtlA" },
   // Novos exercícios
   { id: 79, exercise_id: 37, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/JfZjng7jAKs" },
-  { id: 80, exercise_id: 38, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/abc1fisYB3w" },
-  { id: 81, exercise_id: 39, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/R53nThQcdZo" },
-  { id: 82, exercise_id: 40, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/kpzUeELReEA" },
-  { id: 83, exercise_id: 41, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/cRKA_Qdut7I" }
+  { id: 80, exercise_id: 38, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/YH9d2L8MKkg" },
+  { id: 81, exercise_id: 39, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/1pkpXUIpWD8" },
+  { id: 82, exercise_id: 40, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/nEF0bv2FW94" },
+  { id: 83, exercise_id: 41, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/cRKA_Qdut7I" },
+  
+  // Novos exercícios essenciais com vídeos reais
+  { id: 84, exercise_id: 42, variation_index: 1, variation_name: "See Tutorial Video", youtube_url: "https://youtu.be/2C-uNgKwPLE" },
+  { id: 85, exercise_id: 42, variation_index: 2, variation_name: "Dumbbell Bulgarian Split", youtube_url: "https://youtu.be/2C-uNgKwPLE" },
+  { id: 86, exercise_id: 43, variation_index: 1, variation_name: "Pull-ups", youtube_url: "https://youtu.be/eGo4IYlbE5g" },
+  { id: 87, exercise_id: 43, variation_index: 2, variation_name: "Chin-ups", youtube_url: "https://youtu.be/brhRXlOhkAM" },
+  { id: 88, exercise_id: 43, variation_index: 3, variation_name: "Assisted Pull-ups", youtube_url: "https://youtu.be/cB8-4zVvY7c" },
+  { id: 89, exercise_id: 44, variation_index: 1, variation_name: "Standard Push-ups", youtube_url: "https://youtu.be/IODxDxX7oi4" },
+  { id: 90, exercise_id: 44, variation_index: 2, variation_name: "Incline Push-ups", youtube_url: "https://youtu.be/4dF1DOWzf20" },
+  { id: 91, exercise_id: 44, variation_index: 3, variation_name: "Diamond Push-ups", youtube_url: "https://youtu.be/J0DnG1_S92I" },
+  { id: 92, exercise_id: 45, variation_index: 1, variation_name: "Barbell Overhead Press", youtube_url: "https://youtu.be/QAQ64hK4Xxs" },
+  { id: 93, exercise_id: 45, variation_index: 2, variation_name: "Dumbbell Shoulder Press", youtube_url: "https://youtu.be/qEwKCR5JCog" },
+  { id: 94, exercise_id: 46, variation_index: 1, variation_name: "Standard Face Pulls", youtube_url: "https://youtu.be/rep-qVOkqgk" },
+  { id: 95, exercise_id: 47, variation_index: 1, variation_name: "Dumbbell Goblet Squat", youtube_url: "https://youtu.be/PKmrXTx6jZs" },
+  { id: 96, exercise_id: 48, variation_index: 1, variation_name: "Parallel Bar Dips", youtube_url: "https://youtu.be/yN6Q1UI_xkE" },
+  { id: 97, exercise_id: 48, variation_index: 2, variation_name: "Bench Dips", youtube_url: "https://youtu.be/0326dy_-CzM" },
+  { id: 98, exercise_id: 49, variation_index: 1, variation_name: "Standard Plank", youtube_url: "https://youtu.be/ASdvN_XEl_c" },
+  { id: 99, exercise_id: 49, variation_index: 2, variation_name: "Side Plank", youtube_url: "https://youtu.be/o4LGPtKjbhU" },
+  { id: 100, exercise_id: 50, variation_index: 1, variation_name: "Mountain Climbers", youtube_url: "https://youtu.be/cnyTQDSE884" }
 ];
 
 // Mock user para desenvolvimento

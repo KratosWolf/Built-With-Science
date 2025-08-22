@@ -65,11 +65,27 @@ export function RestTimer({ initialSeconds, onComplete, onSkip, isActive }: Rest
   const timerColor = getTimerColor();
 
   return (
-    <Card className={`border-${timerColor}-200 bg-${timerColor}-50 animate-pulse`}>
+    <Card className={`border-4 ${timerColor === 'green' ? 'border-green-400 bg-green-50' : timerColor === 'orange' ? 'border-orange-400 bg-orange-50' : 'border-red-400 bg-red-50'} ${timeLeft <= 10 ? 'animate-pulse' : ''}`}>
       <CardContent className="pt-6">
-        <div className="text-center space-y-4">
+        <div className="text-center space-y-6">
+          {/* Large Timer Display */}
+          <div className="space-y-2">
+            <h3 className="text-lg font-semibold text-gray-800">⏰ Rest Time</h3>
+            <div className={`text-6xl font-bold ${timerColor === 'green' ? 'text-green-600' : timerColor === 'orange' ? 'text-orange-600' : 'text-red-600'}`}>
+              {formatTime(timeLeft)}
+            </div>
+          </div>
+          
+          {/* Progress Bar */}
+          <div className="w-full bg-gray-200 rounded-full h-4">
+            <div 
+              className={`h-4 rounded-full transition-all duration-1000 ${timerColor === 'green' ? 'bg-green-500' : timerColor === 'orange' ? 'bg-orange-500' : 'bg-red-500'}`}
+              style={{ width: `${getProgressPercentage()}%` }}
+            />
+          </div>
+          
           {/* Circular Progress */}
-          <div className="relative w-24 h-24 mx-auto">
+          <div className="relative w-32 h-32 mx-auto">
             <svg className="w-24 h-24 transform -rotate-90" viewBox="0 0 100 100">
               {/* Background circle */}
               <circle
@@ -111,41 +127,46 @@ export function RestTimer({ initialSeconds, onComplete, onSkip, isActive }: Rest
             </div>
           </div>
 
-          <div className="flex gap-2 justify-center">
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setIsRunning(!isRunning)}
-              className="border-gray-300"
-            >
-              {isRunning ? '⏸️ Pause' : '▶️ Resume'}
-            </Button>
+          <div className="flex flex-col gap-3">
+            <div className="flex gap-2 justify-center">
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setIsRunning(!isRunning)}
+                className="h-12 px-6 font-semibold"
+              >
+                {isRunning ? '⏸️ Pause' : '▶️ Resume'}
+              </Button>
+              
+              <Button
+                variant="outline"
+                size="lg"
+                onClick={() => setTimeLeft(prev => Math.min(prev + 30, initialSeconds + 60))}
+                className="h-12 px-6"
+              >
+                ⏰ +30s
+              </Button>
+            </div>
             
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setTimeLeft(prev => Math.min(prev + 30, initialSeconds + 60))}
-              className="border-gray-300"
-            >
-              +30s
-            </Button>
-            
-            <Button
-              variant="outline"
-              size="sm"
-              onClick={() => setTimeLeft(prev => Math.max(prev - 30, 0))}
-              className="border-gray-300"
-            >
-              -30s
-            </Button>
-            
-            <Button
-              onClick={onSkip}
-              size="sm"
-              className={`bg-${timerColor}-600 hover:bg-${timerColor}-700`}
-            >
-              Skip Rest
-            </Button>
+            <div className="flex gap-2 justify-center">
+              <Button
+                onClick={onComplete}
+                variant="default"
+                size="lg"
+                className="flex-1 h-12 bg-green-600 hover:bg-green-700 font-semibold"
+              >
+                ✅ Done Resting
+              </Button>
+              
+              <Button
+                onClick={onSkip}
+                variant="outline"
+                size="lg"  
+                className="flex-1 h-12 font-semibold"
+              >
+                ⏭️ Skip Rest
+              </Button>
+            </div>
           </div>
         </div>
       </CardContent>

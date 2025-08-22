@@ -562,21 +562,77 @@ export default function WorkoutPage() {
             <CardContent className="space-y-4">
               <div className="grid grid-cols-2 gap-4">
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Weight (kg)</label>
-                  <Input
-                    type="number"
-                    placeholder="0"
-                    value={set.weight || ''}
-                    onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'weight', parseFloat(e.target.value) || undefined)}
-                  />
+                  <label className="text-base font-medium text-gray-700 mb-2 block">Weight (kg)</label>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const currentWeight = set.weight || 0;
+                        const newWeight = Math.max(0, currentWeight - 2.5);
+                        updateSet(currentExerciseIndex, setIndex, 'weight', newWeight);
+                      }}
+                      className="h-12 w-12 text-lg"
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      placeholder="0"
+                      value={set.weight || ''}
+                      onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'weight', parseFloat(e.target.value) || undefined)}
+                      className="text-center text-lg h-12 font-semibold"
+                    />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const currentWeight = set.weight || 0;
+                        const newWeight = currentWeight + 2.5;
+                        updateSet(currentExerciseIndex, setIndex, 'weight', newWeight);
+                      }}
+                      className="h-12 w-12 text-lg"
+                    >
+                      +
+                    </Button>
+                  </div>
                 </div>
                 <div>
-                  <label className="text-sm font-medium text-gray-700">Reps</label>
-                  <Input
-                    type="number"
-                    placeholder="0"
-                    value={set.reps || ''}
-                    onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'reps', parseInt(e.target.value) || undefined)}
+                  <label className="text-base font-medium text-gray-700 mb-2 block">Reps</label>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const currentReps = set.reps || 0;
+                        const newReps = Math.max(0, currentReps - 1);
+                        updateSet(currentExerciseIndex, setIndex, 'reps', newReps);
+                      }}
+                      className="h-12 w-12 text-lg"
+                    >
+                      -
+                    </Button>
+                    <Input
+                      type="number"
+                      placeholder="0"
+                      value={set.reps || ''}
+                      onChange={(e) => updateSet(currentExerciseIndex, setIndex, 'reps', parseInt(e.target.value) || undefined)}
+                      className="text-center text-lg h-12 font-semibold"
+                    />
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => {
+                        const currentReps = set.reps || 0;
+                        const newReps = currentReps + 1;
+                        updateSet(currentExerciseIndex, setIndex, 'reps', newReps);
+                      }}
+                      className="h-12 w-12 text-lg"
+                    >
+                      +
+                    </Button>
+                  </div>
+                </div>
                   />
                 </div>
               </div>
@@ -613,14 +669,59 @@ export default function WorkoutPage() {
                 </div>
               )}
 
+              {/* Quick Actions */}
+              <div className="flex flex-wrap gap-2 pt-2 border-t">
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    if (setIndex > 0) {
+                      const prevSet = currentExercise.sets[setIndex - 1];
+                      if (prevSet.weight) updateSet(currentExerciseIndex, setIndex, 'weight', prevSet.weight);
+                      if (prevSet.reps) updateSet(currentExerciseIndex, setIndex, 'reps', prevSet.reps);
+                    }
+                  }}
+                  className="text-xs"
+                  disabled={setIndex === 0}
+                >
+                  📋 Copy Last Set
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const lastSet = getLastSet('mock-user-123', currentExercise.exerciseId, 1);
+                    if (lastSet) {
+                      updateSet(currentExerciseIndex, setIndex, 'weight', lastSet.weight_kg || 0);
+                      updateSet(currentExerciseIndex, setIndex, 'reps', lastSet.reps || 0);
+                    }
+                  }}
+                  className="text-xs"
+                >
+                  🔄 Use Last Workout
+                </Button>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  onClick={() => {
+                    const currentWeight = set.weight || 0;
+                    updateSet(currentExerciseIndex, setIndex, 'weight', currentWeight + 2.5);
+                  }}
+                  className="text-xs bg-green-50 hover:bg-green-100"
+                >
+                  ⬆️ +2.5kg
+                </Button>
+              </div>
+
               <div>
-                <label className="text-sm font-medium text-gray-700">Difficulty</label>
-                <div className="flex gap-2 mt-1">
+                <label className="text-base font-medium text-gray-700">Difficulty</label>
+                <div className="flex gap-2 mt-2">
                   {['easy', 'ok', 'hard'].map((difficulty) => (
                     <Button
                       key={difficulty}
                       variant={set.difficulty === difficulty ? "default" : "outline"}
                       size="sm"
+                      className="flex-1 h-10"
                       onClick={() => updateSet(currentExerciseIndex, setIndex, 'difficulty', difficulty)}
                     >
                       {difficulty === 'easy' ? '😊 Easy' : difficulty === 'ok' ? '😐 OK' : '😤 Hard'}
@@ -629,14 +730,46 @@ export default function WorkoutPage() {
                 </div>
               </div>
 
-              {!currentExercise.isSuperset && (set.restMinutes || set.restSeconds) && (
-                <Button
-                  onClick={() => startRest(set.restMinutes || 0, set.restSeconds || 0)}
-                  className="w-full"
-                  variant="outline"
-                >
-                  Start Rest Timer ({(set.restMinutes || 0)}:{(set.restSeconds || 0).toString().padStart(2, '0')})
-                </Button>
+              {!currentExercise.isSuperset && (
+                <div className="space-y-2">
+                  <label className="text-base font-medium text-gray-700">Rest Timer</label>
+                  <div className="flex gap-2">
+                    <Button
+                      onClick={() => startRest(1, 0)}
+                      variant="outline"
+                      size="sm"
+                      className="flex-1"
+                    >
+                      ⏱️ 1min
+                    </Button>
+                    <Button
+                      onClick={() => startRest(2, 0)}
+                      variant="outline"
+                      size="sm"
+                      className="flex-1"
+                    >
+                      ⏱️ 2min
+                    </Button>
+                    <Button
+                      onClick={() => startRest(3, 0)}
+                      variant="outline"
+                      size="sm"
+                      className="flex-1"
+                    >
+                      ⏱️ 3min
+                    </Button>
+                    {(set.restMinutes || set.restSeconds) && (
+                      <Button
+                        onClick={() => startRest(set.restMinutes || 0, set.restSeconds || 0)}
+                        variant="default"
+                        size="sm"
+                        className="flex-1"
+                      >
+                        🎯 {(set.restMinutes || 0)}:{(set.restSeconds || 0).toString().padStart(2, '0')}
+                      </Button>
+                    )}
+                  </div>
+                </div>
               )}
             </CardContent>
           </Card>
