@@ -77,23 +77,104 @@ Aplicação mobile nativa em `/Users/tiagofernandes/built_with_science_app`
 
 ## 📋 PLANO DE MIGRAÇÃO PARA FLUTTER
 
-### Fase 1: Organização e Backup
+### Fase 1: Organização e Backup ✅
 - [x] Documentar estado completo dos projetos
 - [x] Sincronizar Next.js progress para GitHub
-- [ ] Criar repositório Flutter no GitHub
-- [ ] Documentar plano de migração
+- [x] Inicializar repositório Git no Flutter
+- [x] Documentar estrutura Flutter completa
+- [x] Criar plano de migração detalhado
 
-### Fase 2: Migração Core Features
-- [ ] Migrar lógica de workout tracking do Next.js
-- [ ] Implementar telas de exercício no Flutter
-- [ ] Integrar dados CSV no Supabase
-- [ ] Migrar componentes de progressão
+### Fase 2: Setup Supabase e Database
+- [ ] Configurar credenciais Supabase no Flutter
+- [ ] Criar schema database baseado nos modelos
+- [ ] Implementar serviços de API (SupabaseService)
+- [ ] Migrar mock data para Supabase
+- [ ] Setup sincronização offline/online
 
-### Fase 3: Mobile-Specific Features
-- [ ] Rest timer otimizado para mobile
-- [ ] Interface touch-friendly
-- [ ] Modo offline funcional
-- [ ] Notificações para descanso
+### Fase 3: Migração Core Workout Features
+- [ ] **WorkoutScreen Principal**
+  - Migrar lógica de `/programs/[id]/days/[dayId]/page.tsx`
+  - Sistema de sets/reps/peso input
+  - Navegação entre exercícios
+  - Auto-save de progresso
+  
+- [ ] **Sistema de Progressão**
+  - Migrar `progression-suggestion.tsx` logic
+  - Algoritmos de cálculo baseados em performance
+  - Diferentes níveis de agressividade
+  - Cache de últimas séries
+  
+- [ ] **Rest Timer Mobile**
+  - Migrar `rest-timer.tsx` para Flutter
+  - Background timer functionality
+  - Audio/vibration alerts
+  - Custom intervals por exercício
+
+### Fase 4: Mobile-Specific Enhancements
+- [ ] Interface touch-optimized
+  - Weight picker otimizado para mobile
+  - Swipe gestures entre exercícios
+  - Quick action buttons
+  
+- [ ] Features Mobile-Only
+  - Background processing
+  - Push notifications para rest
+  - Modo landscape para workouts
+  - Keep screen on durante treino
+  
+- [ ] Offline Capability
+  - SQLite caching completo
+  - Sync queue para quando voltar online
+  - Conflict resolution
+  
+### Fase 5: Polish e Deploy
+- [ ] UI/UX refinements
+- [ ] Performance optimization
+- [ ] Testing em dispositivos reais
+- [ ] App store preparation
+- [ ] Beta testing
+
+---
+
+## 🔧 ARQUIVOS ESPECÍFICOS PARA MIGRAÇÃO
+
+### Priority 1: Core Workout Logic
+```
+Next.js → Flutter Migration Map:
+
+src/app/programs/[id]/days/[dayId]/page.tsx
+└─> lib/screens/workout_screen.dart (novo)
+
+src/components/ui/progression-suggestion.tsx  
+└─> lib/services/progression_service.dart (novo)
+
+src/components/ui/rest-timer.tsx
+└─> lib/widgets/rest_timer_widget.dart (novo)
+
+src/lib/mock-data/workout-data.ts
+└─> Supabase tables + lib/services/supabase_service.dart
+```
+
+### Priority 2: Data Models & Utils
+```
+src/lib/utils/progression.ts
+└─> lib/utils/progression_utils.dart (migrar lógica)
+
+src/lib/validations/workout.ts  
+└─> lib/models/validations.dart (migrar validações)
+
+src/types/ (TypeScript types)
+└─> Já implementado em lib/models/workout_models.dart
+```
+
+### Priority 3: UI Components
+```
+src/components/ui/ (Shadcn components)
+└─> lib/widgets/ (Material Design equivalents)
+- Custom buttons, cards, inputs
+- Progress indicators
+- Loading states
+```
 
 ---
 
