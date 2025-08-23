@@ -1,0 +1,1279 @@
+{
+  "exercises": [
+    {
+      "id": 1,
+      "name": "Barbell Bench Press"
+    },
+    {
+      "id": 2,
+      "name": "Flat Dumbbell Press"
+    },
+    {
+      "id": 3,
+      "name": "Flat Machine Chest Press"
+    },
+    {
+      "id": 4,
+      "name": "Flat Smith Machine Chest Press"
+    },
+    {
+      "id": 5,
+      "name": "Seated Flat Cable Press"
+    },
+    {
+      "id": 6,
+      "name": "Neutral Grip DB Press*"
+    },
+    {
+      "id": 7,
+      "name": "Barbell Romanian Deadlift"
+    },
+    {
+      "id": 8,
+      "name": "Dumbbell Romanian Deadlift"
+    },
+    {
+      "id": 9,
+      "name": "Hyperextensions (back/hamstring)"
+    },
+    {
+      "id": 10,
+      "name": "(Weighted) Pull-Ups"
+    },
+    {
+      "id": 11,
+      "name": "(Weighted) Chin-Ups"
+    },
+    {
+      "id": 12,
+      "name": "Banded Pull-Ups"
+    },
+    {
+      "id": 13,
+      "name": "Pull-Up Negatives"
+    },
+    {
+      "id": 14,
+      "name": "Kneeling Lat Pulldown"
+    },
+    {
+      "id": 15,
+      "name": "Lat Pulldown"
+    },
+    {
+      "id": 16,
+      "name": "Inverted Row"
+    },
+    {
+      "id": 17,
+      "name": "Walking Lunges (quad focus)"
+    },
+    {
+      "id": 18,
+      "name": "Heel Elevated Split Squat"
+    },
+    {
+      "id": 19,
+      "name": "Bulgarian Split Squat (quad focus)"
+    },
+    {
+      "id": 20,
+      "name": "Reverse Lunges*"
+    },
+    {
+      "id": 21,
+      "name": "Weighted Step-Ups*"
+    },
+    {
+      "id": 22,
+      "name": "Standing Mid-Chest Cable Fly"
+    },
+    {
+      "id": 23,
+      "name": "Seated Mid-Chest Cable Fly"
+    },
+    {
+      "id": 24,
+      "name": "Pec-Deck Machine Fly"
+    },
+    {
+      "id": 25,
+      "name": "Dumbbell Fly"
+    },
+    {
+      "id": 26,
+      "name": "Banded Push-Ups"
+    },
+    {
+      "id": 27,
+      "name": "Dumbbell Lateral Raise"
+    },
+    {
+      "id": 28,
+      "name": "Cable Lateral Raise"
+    },
+    {
+      "id": 29,
+      "name": "Lying Incline Lateral Raise"
+    },
+    {
+      "id": 30,
+      "name": "Lean In Lateral Raise"
+    },
+    {
+      "id": 31,
+      "name": "Wide Grip BB Upright Row (last resort)"
+    },
+    {
+      "id": 32,
+      "name": "Single Leg Weighted Calf Raise"
+    },
+    {
+      "id": 33,
+      "name": "Toes-Elevated Smith Machine Calf Raise"
+    },
+    {
+      "id": 34,
+      "name": "Standing Weighted Calf Raise"
+    },
+    {
+      "id": 35,
+      "name": "Leg Press Calf Raise"
+    },
+    {
+      "id": 36,
+      "name": "Standing Face Pulls"
+    },
+    {
+      "id": 37,
+      "name": "Bent Over Dumbbell Face Pulls"
+    },
+    {
+      "id": 38,
+      "name": "(Weighted) Prone Arm Circles"
+    },
+    {
+      "id": 39,
+      "name": "Wall Slides"
+    },
+    {
+      "id": 40,
+      "name": "Barbell Back Squat"
+    },
+    {
+      "id": 41,
+      "name": "Quad-Focused Leg Press"
+    },
+    {
+      "id": 42,
+      "name": "Smith Machine Squat"
+    },
+    {
+      "id": 43,
+      "name": "Barbell Back Box Squat*"
+    },
+    {
+      "id": 44,
+      "name": "Dumbbell Goblet Squat*"
+    },
+    {
+      "id": 45,
+      "name": "Standing Barbell Overhead Press"
+    },
+    {
+      "id": 46,
+      "name": "Seated Dumbbell Shoulder Press"
+    },
+    {
+      "id": 47,
+      "name": "Standing Dumbbell Shoulder Press"
+    },
+    {
+      "id": 48,
+      "name": "Seated Neutral-Grip DB Press*"
+    },
+    {
+      "id": 49,
+      "name": "Half Kneeling Landmine Press*"
+    },
+    {
+      "id": 50,
+      "name": "Seated Leg Curls"
+    },
+    {
+      "id": 51,
+      "name": "Lying Leg Curls"
+    },
+    {
+      "id": 52,
+      "name": "Swiss Ball Leg Curls"
+    },
+    {
+      "id": 53,
+      "name": "Dumbbell Lying Leg Curls"
+    },
+    {
+      "id": 54,
+      "name": "DB Chest Supported Row (mid/upper back)"
+    },
+    {
+      "id": 55,
+      "name": "Barbell Row (mid/upper back)"
+    },
+    {
+      "id": 56,
+      "name": "Seated Cable Row (mid/upper back)"
+    },
+    {
+      "id": 57,
+      "name": "Chest Supported Machine Row"
+    },
+    {
+      "id": 58,
+      "name": "Close-Grip Barbell Bench Press"
+    },
+    {
+      "id": 59,
+      "name": "Close-Grip Push-Ups"
+    },
+    {
+      "id": 60,
+      "name": "Close-Grip Dumbbell Press"
+    },
+    {
+      "id": 61,
+      "name": "Close-Grip Smith Machine Press"
+    },
+    {
+      "id": 62,
+      "name": "Cable Pushdowns*"
+    },
+    {
+      "id": 63,
+      "name": "Incline DB Overhead Extensions"
+    },
+    {
+      "id": 64,
+      "name": "Overhead Rope Extensions"
+    },
+    {
+      "id": 65,
+      "name": "Incline Barbell Skullcrushers"
+    },
+    {
+      "id": 66,
+      "name": "Cross Cable Tricep Extensions"
+    },
+    {
+      "id": 67,
+      "name": "Seated Weighted Calf Raise"
+    },
+    {
+      "id": 68,
+      "name": "Seated Bodyweight Calf Raise"
+    },
+    {
+      "id": 69,
+      "name": "Side Plank"
+    },
+    {
+      "id": 70,
+      "name": "RKC Plank"
+    },
+    {
+      "id": 71,
+      "name": "Bird Dog"
+    },
+    {
+      "id": 72,
+      "name": "Palloff Press"
+    },
+    {
+      "id": 73,
+      "name": "Dead Bug"
+    },
+    {
+      "id": 74,
+      "name": "Barbell Deadlift"
+    },
+    {
+      "id": 75,
+      "name": "Sumo Deadlift*"
+    },
+    {
+      "id": 76,
+      "name": "Trap Bar Deadlift*"
+    },
+    {
+      "id": 77,
+      "name": "Glute Focused Leg Press"
+    },
+    {
+      "id": 78,
+      "name": "Low Incline Dumbbell Press"
+    },
+    {
+      "id": 79,
+      "name": "Incline Machine Chest Press"
+    },
+    {
+      "id": 80,
+      "name": "Low Incline Smith Machine Press"
+    },
+    {
+      "id": 81,
+      "name": "Low Incline Barbell Press"
+    },
+    {
+      "id": 82,
+      "name": "Low Incline Cable Press"
+    },
+    {
+      "id": 83,
+      "name": "(Banded) Decline Push-Ups"
+    },
+    {
+      "id": 84,
+      "name": "Seated Leg Extensions"
+    },
+    {
+      "id": 85,
+      "name": "Sissy Squat"
+    },
+    {
+      "id": 86,
+      "name": "Heel Elevated Goblet Squat"
+    },
+    {
+      "id": 87,
+      "name": "Seated Dumbbell Curls"
+    },
+    {
+      "id": 88,
+      "name": "Standing Cable Curl"
+    },
+    {
+      "id": 89,
+      "name": "Dumbbell Spider Curls"
+    }
+  ],
+  "exerciseVariations": [
+    {
+      "id": 1,
+      "exercise_id": 1,
+      "variation_index": 1,
+      "variation_name": "Barbell Bench Press",
+      "youtube_url": "https://youtu.be/pCGVSBk0bIQ",
+      "sets_info": "Set 1: 8-10"
+    },
+    {
+      "id": 2,
+      "exercise_id": 2,
+      "variation_index": 1,
+      "variation_name": "Flat Dumbbell Press",
+      "youtube_url": "https://youtu.be/g14dhC5KYBM",
+      "sets_info": "Set 2: 8-10"
+    },
+    {
+      "id": 3,
+      "exercise_id": 3,
+      "variation_index": 1,
+      "variation_name": "Flat Machine Chest Press",
+      "youtube_url": "https://youtu.be/sO8lFa9CidE",
+      "sets_info": "Set 3: 8-10"
+    },
+    {
+      "id": 4,
+      "exercise_id": 4,
+      "variation_index": 1,
+      "variation_name": "Flat Smith Machine Chest Press",
+      "youtube_url": "https://youtu.be/3Z3C44SXSQE",
+      "sets_info": ""
+    },
+    {
+      "id": 5,
+      "exercise_id": 5,
+      "variation_index": 1,
+      "variation_name": "Seated Flat Cable Press",
+      "youtube_url": "https://youtu.be/hPpNTAEDnxM",
+      "sets_info": ""
+    },
+    {
+      "id": 6,
+      "exercise_id": 6,
+      "variation_index": 1,
+      "variation_name": "Neutral Grip DB Press*",
+      "youtube_url": "https://youtu.be/N-kUwH1uf9c",
+      "sets_info": ""
+    },
+    {
+      "id": 7,
+      "exercise_id": 7,
+      "variation_index": 1,
+      "variation_name": "Barbell Romanian Deadlift",
+      "youtube_url": "https://youtu.be/Q-2telZDPRw",
+      "sets_info": "Set 1: 8-10"
+    },
+    {
+      "id": 8,
+      "exercise_id": 8,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Romanian Deadlift",
+      "youtube_url": "https://youtu.be/Xu4DxwKWzl4",
+      "sets_info": "Set 2: 8-10"
+    },
+    {
+      "id": 9,
+      "exercise_id": 9,
+      "variation_index": 1,
+      "variation_name": "Hyperextensions (back/hamstring)",
+      "youtube_url": "https://youtu.be/RU5d2H_OmSc",
+      "sets_info": "Set 3: 8-10"
+    },
+    {
+      "id": 10,
+      "exercise_id": 10,
+      "variation_index": 1,
+      "variation_name": "(Weighted) Pull-Ups",
+      "youtube_url": "https://youtu.be/w_yuTRQd6HA",
+      "sets_info": "Set 1: 6-12"
+    },
+    {
+      "id": 11,
+      "exercise_id": 11,
+      "variation_index": 1,
+      "variation_name": "(Weighted) Chin-Ups",
+      "youtube_url": "https://youtu.be/-TZRdvUS7Qo",
+      "sets_info": "Set 2: 6-12"
+    },
+    {
+      "id": 12,
+      "exercise_id": 12,
+      "variation_index": 1,
+      "variation_name": "Banded Pull-Ups",
+      "youtube_url": "https://youtu.be/VGm-f5-T5no",
+      "sets_info": "Set 3: 6-12"
+    },
+    {
+      "id": 13,
+      "exercise_id": 13,
+      "variation_index": 1,
+      "variation_name": "Pull-Up Negatives",
+      "youtube_url": "https://youtu.be/SyMSay4zrsA",
+      "sets_info": ""
+    },
+    {
+      "id": 14,
+      "exercise_id": 14,
+      "variation_index": 1,
+      "variation_name": "Kneeling Lat Pulldown",
+      "youtube_url": "https://youtu.be/4LxKeTqlpZA",
+      "sets_info": ""
+    },
+    {
+      "id": 15,
+      "exercise_id": 15,
+      "variation_index": 1,
+      "variation_name": "Lat Pulldown",
+      "youtube_url": "https://youtu.be/AvYZZhEl7Xk",
+      "sets_info": ""
+    },
+    {
+      "id": 16,
+      "exercise_id": 16,
+      "variation_index": 1,
+      "variation_name": "Inverted Row",
+      "youtube_url": "https://youtu.be/SyMSay4zrsA",
+      "sets_info": ""
+    },
+    {
+      "id": 17,
+      "exercise_id": 17,
+      "variation_index": 1,
+      "variation_name": "Walking Lunges (quad focus)",
+      "youtube_url": "https://youtu.be/JB20RuTOaFc",
+      "sets_info": "Set 1: 8-10 per leg"
+    },
+    {
+      "id": 18,
+      "exercise_id": 18,
+      "variation_index": 1,
+      "variation_name": "Heel Elevated Split Squat",
+      "youtube_url": "https://youtu.be/bJE0-eZLa6E",
+      "sets_info": "Set 2: 8-10 per leg"
+    },
+    {
+      "id": 19,
+      "exercise_id": 19,
+      "variation_index": 1,
+      "variation_name": "Bulgarian Split Squat (quad focus)",
+      "youtube_url": "https://youtu.be/r9XtxWSTlcg",
+      "sets_info": "Set 3: 8-10 per leg"
+    },
+    {
+      "id": 20,
+      "exercise_id": 20,
+      "variation_index": 1,
+      "variation_name": "Reverse Lunges*",
+      "youtube_url": "https://youtu.be/AUEGDvCrQJA",
+      "sets_info": ""
+    },
+    {
+      "id": 21,
+      "exercise_id": 21,
+      "variation_index": 1,
+      "variation_name": "Weighted Step-Ups*",
+      "youtube_url": "https://youtu.be/Cjc3AgmdtlA",
+      "sets_info": ""
+    },
+    {
+      "id": 22,
+      "exercise_id": 22,
+      "variation_index": 1,
+      "variation_name": "Standing Mid-Chest Cable Fly",
+      "youtube_url": "https://youtu.be/fyFVaCP9J-8",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 23,
+      "exercise_id": 23,
+      "variation_index": 1,
+      "variation_name": "Seated Mid-Chest Cable Fly",
+      "youtube_url": "https://youtu.be/Y8E3dHNsSTU",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 24,
+      "exercise_id": 24,
+      "variation_index": 1,
+      "variation_name": "Pec-Deck Machine Fly",
+      "youtube_url": "https://youtu.be/rnV3y1P7894",
+      "sets_info": "Set 3: 10-15"
+    },
+    {
+      "id": 25,
+      "exercise_id": 25,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Fly",
+      "youtube_url": "https://youtu.be/WRn2hqy0gXU",
+      "sets_info": ""
+    },
+    {
+      "id": 26,
+      "exercise_id": 26,
+      "variation_index": 1,
+      "variation_name": "Banded Push-Ups",
+      "youtube_url": "https://youtu.be/dI7LVElfMOg",
+      "sets_info": ""
+    },
+    {
+      "id": 27,
+      "exercise_id": 27,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Lateral Raise",
+      "youtube_url": "https://youtu.be/zcO3sgAeLA0",
+      "sets_info": "Set 1: 15-20"
+    },
+    {
+      "id": 28,
+      "exercise_id": 28,
+      "variation_index": 1,
+      "variation_name": "Cable Lateral Raise",
+      "youtube_url": "https://youtu.be/1muit9qEctY",
+      "sets_info": "Set 2: 15-20"
+    },
+    {
+      "id": 29,
+      "exercise_id": 29,
+      "variation_index": 1,
+      "variation_name": "Lying Incline Lateral Raise",
+      "youtube_url": "https://youtu.be/upEqeI0F73M",
+      "sets_info": "Set 3: 15-20"
+    },
+    {
+      "id": 30,
+      "exercise_id": 30,
+      "variation_index": 1,
+      "variation_name": "Lean In Lateral Raise",
+      "youtube_url": "https://youtu.be/2q4kjTDg-vs",
+      "sets_info": ""
+    },
+    {
+      "id": 31,
+      "exercise_id": 31,
+      "variation_index": 1,
+      "variation_name": "Wide Grip BB Upright Row (last resort)",
+      "youtube_url": "https://youtu.be/6BTMVh9AnCw",
+      "sets_info": ""
+    },
+    {
+      "id": 32,
+      "exercise_id": 32,
+      "variation_index": 1,
+      "variation_name": "Single Leg Weighted Calf Raise",
+      "youtube_url": "https://youtu.be/cRKA_Qdut7I",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 33,
+      "exercise_id": 33,
+      "variation_index": 1,
+      "variation_name": "Toes-Elevated Smith Machine Calf Raise",
+      "youtube_url": "https://youtu.be/_ChZv2iluM8",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 34,
+      "exercise_id": 34,
+      "variation_index": 1,
+      "variation_name": "Standing Weighted Calf Raise",
+      "youtube_url": "https://youtu.be/q2Eigaa9dKU",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 35,
+      "exercise_id": 35,
+      "variation_index": 1,
+      "variation_name": "Leg Press Calf Raise",
+      "youtube_url": "https://youtu.be/s8yUXsZrgE0",
+      "sets_info": ""
+    },
+    {
+      "id": 36,
+      "exercise_id": 36,
+      "variation_index": 1,
+      "variation_name": "Standing Face Pulls",
+      "youtube_url": "https://youtu.be/02g7XtSRXug",
+      "sets_info": "Set 1: 10"
+    },
+    {
+      "id": 37,
+      "exercise_id": 37,
+      "variation_index": 1,
+      "variation_name": "Bent Over Dumbbell Face Pulls",
+      "youtube_url": "https://youtu.be/kA415Unr-_E",
+      "sets_info": "Set 2: 10"
+    },
+    {
+      "id": 38,
+      "exercise_id": 38,
+      "variation_index": 1,
+      "variation_name": "(Weighted) Prone Arm Circles",
+      "youtube_url": "https://youtu.be/6D-4V_M8RJA",
+      "sets_info": "Set 3: 10"
+    },
+    {
+      "id": 39,
+      "exercise_id": 39,
+      "variation_index": 1,
+      "variation_name": "Wall Slides",
+      "youtube_url": "https://youtu.be/x4zjfuLXHVk",
+      "sets_info": ""
+    },
+    {
+      "id": 40,
+      "exercise_id": 40,
+      "variation_index": 1,
+      "variation_name": "Barbell Back Squat",
+      "youtube_url": "https://youtu.be/AWo-q7P-HZ0",
+      "sets_info": "Set 1: 8-10"
+    },
+    {
+      "id": 41,
+      "exercise_id": 41,
+      "variation_index": 1,
+      "variation_name": "Quad-Focused Leg Press",
+      "youtube_url": "https://youtu.be/0nrW-q7-WRQ",
+      "sets_info": "Set 2: 8-10"
+    },
+    {
+      "id": 42,
+      "exercise_id": 42,
+      "variation_index": 1,
+      "variation_name": "Smith Machine Squat",
+      "youtube_url": "https://youtu.be/zSVi51Jp3eI",
+      "sets_info": "Set 3: 8-10"
+    },
+    {
+      "id": 43,
+      "exercise_id": 43,
+      "variation_index": 1,
+      "variation_name": "Barbell Back Box Squat*",
+      "youtube_url": "https://youtu.be/QryQO4VuPK8",
+      "sets_info": ""
+    },
+    {
+      "id": 44,
+      "exercise_id": 21,
+      "variation_index": 2,
+      "variation_name": "Weighted Step-Ups*",
+      "youtube_url": "https://youtu.be/Cjc3AgmdtlA",
+      "sets_info": ""
+    },
+    {
+      "id": 45,
+      "exercise_id": 44,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Goblet Squat*",
+      "youtube_url": "https://youtu.be/nYDEYFXN2Rs",
+      "sets_info": ""
+    },
+    {
+      "id": 46,
+      "exercise_id": 19,
+      "variation_index": 2,
+      "variation_name": "Bulgarian Split Squat (quad focus)",
+      "youtube_url": "https://youtu.be/r9XtxWSTlcg",
+      "sets_info": ""
+    },
+    {
+      "id": 47,
+      "exercise_id": 45,
+      "variation_index": 1,
+      "variation_name": "Standing Barbell Overhead Press",
+      "youtube_url": "https://youtu.be/S3kYKH32VqI",
+      "sets_info": "Set 1: 6-8"
+    },
+    {
+      "id": 48,
+      "exercise_id": 46,
+      "variation_index": 1,
+      "variation_name": "Seated Dumbbell Shoulder Press",
+      "youtube_url": "https://youtu.be/DPXG3BJvl8A",
+      "sets_info": "Set 2: 6-8"
+    },
+    {
+      "id": 49,
+      "exercise_id": 47,
+      "variation_index": 1,
+      "variation_name": "Standing Dumbbell Shoulder Press",
+      "youtube_url": "https://youtu.be/jWriqmLrQqs",
+      "sets_info": "Set 3: 6-8"
+    },
+    {
+      "id": 50,
+      "exercise_id": 48,
+      "variation_index": 1,
+      "variation_name": "Seated Neutral-Grip DB Press*",
+      "youtube_url": "https://youtu.be/W35eREjZnhI",
+      "sets_info": ""
+    },
+    {
+      "id": 51,
+      "exercise_id": 49,
+      "variation_index": 1,
+      "variation_name": "Half Kneeling Landmine Press*",
+      "youtube_url": "https://youtu.be/JOOS3MPCT8s",
+      "sets_info": ""
+    },
+    {
+      "id": 52,
+      "exercise_id": 50,
+      "variation_index": 1,
+      "variation_name": "Seated Leg Curls",
+      "youtube_url": "https://youtu.be/81umRgyxIAU",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 53,
+      "exercise_id": 51,
+      "variation_index": 1,
+      "variation_name": "Lying Leg Curls",
+      "youtube_url": "https://youtu.be/aYy3alWRDmk",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 54,
+      "exercise_id": 52,
+      "variation_index": 1,
+      "variation_name": "Swiss Ball Leg Curls",
+      "youtube_url": "https://youtu.be/uRBpd65dbYs",
+      "sets_info": "Set 3: 10-15"
+    },
+    {
+      "id": 55,
+      "exercise_id": 53,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Lying Leg Curls",
+      "youtube_url": "https://youtu.be/Ot1MZipNLOQ",
+      "sets_info": ""
+    },
+    {
+      "id": 56,
+      "exercise_id": 54,
+      "variation_index": 1,
+      "variation_name": "DB Chest Supported Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/kNvy2_9Ji2w",
+      "sets_info": "Set 1: 10-12"
+    },
+    {
+      "id": 57,
+      "exercise_id": 55,
+      "variation_index": 1,
+      "variation_name": "Barbell Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/FTCmwlfZ29A",
+      "sets_info": "Set 2: 10-12"
+    },
+    {
+      "id": 58,
+      "exercise_id": 56,
+      "variation_index": 1,
+      "variation_name": "Seated Cable Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/Q-5V5T55giY",
+      "sets_info": "Set 3: 10-12"
+    },
+    {
+      "id": 59,
+      "exercise_id": 57,
+      "variation_index": 1,
+      "variation_name": "Chest Supported Machine Row",
+      "youtube_url": "https://youtu.be/iDiVxqvHGWY",
+      "sets_info": ""
+    },
+    {
+      "id": 60,
+      "exercise_id": 26,
+      "variation_index": 2,
+      "variation_name": "Banded Push-Ups",
+      "youtube_url": "https://youtu.be/dI7LVElfMOg",
+      "sets_info": "Set 1: 10+"
+    },
+    {
+      "id": 61,
+      "exercise_id": 58,
+      "variation_index": 1,
+      "variation_name": "Close-Grip Barbell Bench Press",
+      "youtube_url": "https://youtu.be/JzCGNgXuATs",
+      "sets_info": "Set 2: 10+"
+    },
+    {
+      "id": 62,
+      "exercise_id": 59,
+      "variation_index": 1,
+      "variation_name": "Close-Grip Push-Ups",
+      "youtube_url": "https://youtu.be/ZtAz8gupAss",
+      "sets_info": "Set 3: 10+ (to failure)"
+    },
+    {
+      "id": 63,
+      "exercise_id": 60,
+      "variation_index": 1,
+      "variation_name": "Close-Grip Dumbbell Press",
+      "youtube_url": "https://youtu.be/wHx9-aLjDOM",
+      "sets_info": ""
+    },
+    {
+      "id": 64,
+      "exercise_id": 61,
+      "variation_index": 1,
+      "variation_name": "Close-Grip Smith Machine Press",
+      "youtube_url": "https://youtu.be/GIuRW-MDHK8",
+      "sets_info": ""
+    },
+    {
+      "id": 65,
+      "exercise_id": 62,
+      "variation_index": 1,
+      "variation_name": "Cable Pushdowns*",
+      "youtube_url": "https://youtu.be/MlfCS_7ZLXA",
+      "sets_info": ""
+    },
+    {
+      "id": 66,
+      "exercise_id": 63,
+      "variation_index": 1,
+      "variation_name": "Incline DB Overhead Extensions",
+      "youtube_url": "https://youtu.be/3d86xMhHROA",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 67,
+      "exercise_id": 64,
+      "variation_index": 1,
+      "variation_name": "Overhead Rope Extensions",
+      "youtube_url": "https://youtu.be/7yoTblFCUQM",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 68,
+      "exercise_id": 62,
+      "variation_index": 2,
+      "variation_name": "Cable Pushdowns*",
+      "youtube_url": "https://youtu.be/MlfCS_7ZLXA",
+      "sets_info": "Set 3: 10-15"
+    },
+    {
+      "id": 69,
+      "exercise_id": 65,
+      "variation_index": 1,
+      "variation_name": "Incline Barbell Skullcrushers",
+      "youtube_url": "https://youtu.be/XgwPiPY4vCI",
+      "sets_info": ""
+    },
+    {
+      "id": 70,
+      "exercise_id": 66,
+      "variation_index": 1,
+      "variation_name": "Cross Cable Tricep Extensions",
+      "youtube_url": "https://youtu.be/Fua2QlXnn6Y",
+      "sets_info": ""
+    },
+    {
+      "id": 71,
+      "exercise_id": 67,
+      "variation_index": 1,
+      "variation_name": "Seated Weighted Calf Raise",
+      "youtube_url": "https://youtu.be/2TkLMol2bCo",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 72,
+      "exercise_id": 68,
+      "variation_index": 1,
+      "variation_name": "Seated Bodyweight Calf Raise",
+      "youtube_url": "https://youtu.be/jW-cNnwRJ7E",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 73,
+      "exercise_id": 69,
+      "variation_index": 1,
+      "variation_name": "Side Plank",
+      "youtube_url": "https://youtu.be/o4LGPtKjbhU",
+      "sets_info": "Set 1: 30-60s hold"
+    },
+    {
+      "id": 74,
+      "exercise_id": 70,
+      "variation_index": 1,
+      "variation_name": "RKC Plank",
+      "youtube_url": "https://youtu.be/lOgA1UfFbWY",
+      "sets_info": "Set 2: 30-60s hold"
+    },
+    {
+      "id": 75,
+      "exercise_id": 71,
+      "variation_index": 1,
+      "variation_name": "Bird Dog",
+      "youtube_url": "https://youtu.be/4qE_9h_6Hes",
+      "sets_info": "Set 3: 30-60s hold"
+    },
+    {
+      "id": 76,
+      "exercise_id": 72,
+      "variation_index": 1,
+      "variation_name": "Palloff Press",
+      "youtube_url": "https://youtu.be/WhCH2CwVo4I",
+      "sets_info": ""
+    },
+    {
+      "id": 77,
+      "exercise_id": 73,
+      "variation_index": 1,
+      "variation_name": "Dead Bug",
+      "youtube_url": "https://youtu.be/UJ7b8gYa2Es",
+      "sets_info": ""
+    },
+    {
+      "id": 78,
+      "exercise_id": 74,
+      "variation_index": 1,
+      "variation_name": "Barbell Deadlift",
+      "youtube_url": "https://youtu.be/JL1tJTEmxfw",
+      "sets_info": "Set 1: 6-8"
+    },
+    {
+      "id": 79,
+      "exercise_id": 75,
+      "variation_index": 1,
+      "variation_name": "Sumo Deadlift*",
+      "youtube_url": "https://youtu.be/9rXKd-_DaRs",
+      "sets_info": "Set 2: 6-8"
+    },
+    {
+      "id": 80,
+      "exercise_id": 76,
+      "variation_index": 1,
+      "variation_name": "Trap Bar Deadlift*",
+      "youtube_url": "https://youtu.be/5mnlJtf-7WM",
+      "sets_info": "Set 3: 6-8"
+    },
+    {
+      "id": 81,
+      "exercise_id": 8,
+      "variation_index": 2,
+      "variation_name": "Dumbbell Romanian Deadlift",
+      "youtube_url": "https://youtu.be/Xu4DxwKWzl4",
+      "sets_info": ""
+    },
+    {
+      "id": 82,
+      "exercise_id": 9,
+      "variation_index": 2,
+      "variation_name": "Hyperextensions (back/hamstring)",
+      "youtube_url": "https://youtu.be/RU5d2H_OmSc",
+      "sets_info": ""
+    },
+    {
+      "id": 83,
+      "exercise_id": 77,
+      "variation_index": 1,
+      "variation_name": "Glute Focused Leg Press",
+      "youtube_url": "https://youtu.be/p13BNdwR93A",
+      "sets_info": ""
+    },
+    {
+      "id": 84,
+      "exercise_id": 78,
+      "variation_index": 1,
+      "variation_name": "Low Incline Dumbbell Press",
+      "youtube_url": "https://youtu.be/kpzUeELReEA",
+      "sets_info": "Set 1: 10-12"
+    },
+    {
+      "id": 85,
+      "exercise_id": 79,
+      "variation_index": 1,
+      "variation_name": "Incline Machine Chest Press",
+      "youtube_url": "https://youtu.be/abc1fisYB3w",
+      "sets_info": "Set 2: 10-12"
+    },
+    {
+      "id": 86,
+      "exercise_id": 80,
+      "variation_index": 1,
+      "variation_name": "Low Incline Smith Machine Press",
+      "youtube_url": "https://youtu.be/R53nThQcdZo",
+      "sets_info": "Set 3: 10-12"
+    },
+    {
+      "id": 87,
+      "exercise_id": 81,
+      "variation_index": 1,
+      "variation_name": "Low Incline Barbell Press",
+      "youtube_url": "https://youtu.be/jW4j7FoqudI",
+      "sets_info": ""
+    },
+    {
+      "id": 88,
+      "exercise_id": 82,
+      "variation_index": 1,
+      "variation_name": "Low Incline Cable Press",
+      "youtube_url": "https://youtu.be/6qV1WZ_z0u0",
+      "sets_info": ""
+    },
+    {
+      "id": 89,
+      "exercise_id": 83,
+      "variation_index": 1,
+      "variation_name": "(Banded) Decline Push-Ups",
+      "youtube_url": "https://youtu.be/LdahU9kB-u0",
+      "sets_info": ""
+    },
+    {
+      "id": 90,
+      "exercise_id": 54,
+      "variation_index": 2,
+      "variation_name": "DB Chest Supported Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/kNvy2_9Ji2w",
+      "sets_info": "Set 1: 10-12"
+    },
+    {
+      "id": 91,
+      "exercise_id": 55,
+      "variation_index": 2,
+      "variation_name": "Barbell Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/FTCmwlfZ29A",
+      "sets_info": "Set 2: 10-12"
+    },
+    {
+      "id": 92,
+      "exercise_id": 56,
+      "variation_index": 2,
+      "variation_name": "Seated Cable Row (mid/upper back)",
+      "youtube_url": "https://youtu.be/Q-5V5T55giY",
+      "sets_info": "Set 3: 10-12"
+    },
+    {
+      "id": 93,
+      "exercise_id": 57,
+      "variation_index": 2,
+      "variation_name": "Chest Supported Machine Row",
+      "youtube_url": "https://youtu.be/iDiVxqvHGWY",
+      "sets_info": ""
+    },
+    {
+      "id": 94,
+      "exercise_id": 84,
+      "variation_index": 1,
+      "variation_name": "Seated Leg Extensions",
+      "youtube_url": "https://youtu.be/nIalczfM8es",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 95,
+      "exercise_id": 85,
+      "variation_index": 1,
+      "variation_name": "Sissy Squat",
+      "youtube_url": "https://youtu.be/3SeCC8ABZ_Q",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 96,
+      "exercise_id": 86,
+      "variation_index": 1,
+      "variation_name": "Heel Elevated Goblet Squat",
+      "youtube_url": "https://youtu.be/l9crMLuT4II",
+      "sets_info": "Set 3: 10-15"
+    },
+    {
+      "id": 97,
+      "exercise_id": 20,
+      "variation_index": 2,
+      "variation_name": "Reverse Lunges*",
+      "youtube_url": "https://youtu.be/AUEGDvCrQJA",
+      "sets_info": ""
+    },
+    {
+      "id": 98,
+      "exercise_id": 28,
+      "variation_index": 2,
+      "variation_name": "Cable Lateral Raise",
+      "youtube_url": "https://youtu.be/1muit9qEctY",
+      "sets_info": "Set 1: 15-20"
+    },
+    {
+      "id": 99,
+      "exercise_id": 29,
+      "variation_index": 2,
+      "variation_name": "Lying Incline Lateral Raise",
+      "youtube_url": "https://youtu.be/upEqeI0F73M",
+      "sets_info": "Set 2: 15-20"
+    },
+    {
+      "id": 100,
+      "exercise_id": 27,
+      "variation_index": 2,
+      "variation_name": "Dumbbell Lateral Raise",
+      "youtube_url": "https://youtu.be/zcO3sgAeLA0",
+      "sets_info": "Set 3: 15-20"
+    },
+    {
+      "id": 101,
+      "exercise_id": 30,
+      "variation_index": 2,
+      "variation_name": "Lean In Lateral Raise",
+      "youtube_url": "https://youtu.be/2q4kjTDg-vs",
+      "sets_info": ""
+    },
+    {
+      "id": 102,
+      "exercise_id": 31,
+      "variation_index": 2,
+      "variation_name": "Wide Grip BB Upright Row (last resort)",
+      "youtube_url": "https://youtu.be/6BTMVh9AnCw",
+      "sets_info": ""
+    },
+    {
+      "id": 103,
+      "exercise_id": 87,
+      "variation_index": 1,
+      "variation_name": "Seated Dumbbell Curls",
+      "youtube_url": "https://youtu.be/qUAzPq4B2aw",
+      "sets_info": "Set 1: 10-15"
+    },
+    {
+      "id": 104,
+      "exercise_id": 88,
+      "variation_index": 1,
+      "variation_name": "Standing Cable Curl",
+      "youtube_url": "https://youtu.be/8Bb-ak2lB8E",
+      "sets_info": "Set 2: 10-15"
+    },
+    {
+      "id": 105,
+      "exercise_id": 89,
+      "variation_index": 1,
+      "variation_name": "Dumbbell Spider Curls",
+      "youtube_url": "https://youtu.be/hDDcQkCxHjE",
+      "sets_info": "Set 3: 10-15"
+    },
+    {
+      "id": 106,
+      "exercise_id": 36,
+      "variation_index": 2,
+      "variation_name": "Standing Face Pulls",
+      "youtube_url": "https://youtu.be/02g7XtSRXug",
+      "sets_info": "Set 1: 10"
+    },
+    {
+      "id": 107,
+      "exercise_id": 37,
+      "variation_index": 2,
+      "variation_name": "Bent Over Dumbbell Face Pulls",
+      "youtube_url": "https://youtu.be/kA415Unr-_E",
+      "sets_info": "Set 2: 10"
+    },
+    {
+      "id": 108,
+      "exercise_id": 38,
+      "variation_index": 2,
+      "variation_name": "(Weighted) Prone Arm Circles",
+      "youtube_url": "https://youtu.be/6D-4V_M8RJA",
+      "sets_info": ""
+    },
+    {
+      "id": 109,
+      "exercise_id": 39,
+      "variation_index": 2,
+      "variation_name": "Wall Slides",
+      "youtube_url": "https://youtu.be/x4zjfuLXHVk",
+      "sets_info": ""
+    },
+    {
+      "id": 110,
+      "exercise_id": 69,
+      "variation_index": 2,
+      "variation_name": "Side Plank",
+      "youtube_url": "https://youtu.be/o4LGPtKjbhU",
+      "sets_info": "Set 1: 5 per side"
+    },
+    {
+      "id": 111,
+      "exercise_id": 70,
+      "variation_index": 2,
+      "variation_name": "RKC Plank",
+      "youtube_url": "https://youtu.be/lOgA1UfFbWY",
+      "sets_info": "Set 2: 5 per side"
+    },
+    {
+      "id": 112,
+      "exercise_id": 71,
+      "variation_index": 2,
+      "variation_name": "Bird Dog",
+      "youtube_url": "https://youtu.be/4qE_9h_6Hes",
+      "sets_info": ""
+    },
+    {
+      "id": 113,
+      "exercise_id": 72,
+      "variation_index": 2,
+      "variation_name": "Palloff Press",
+      "youtube_url": "https://youtu.be/WhCH2CwVo4I",
+      "sets_info": ""
+    },
+    {
+      "id": 114,
+      "exercise_id": 73,
+      "variation_index": 2,
+      "variation_name": "Dead Bug",
+      "youtube_url": "https://youtu.be/UJ7b8gYa2Es",
+      "sets_info": ""
+    }
+  ],
+  "summary": {
+    "total_exercises": 89,
+    "total_variations": 114,
+    "generated_at": "2025-08-23T02:16:42.667Z"
+  }
+}

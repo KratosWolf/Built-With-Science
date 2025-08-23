@@ -1,0 +1,269 @@
+{
+  "summary": {
+    "total": 37,
+    "valid": 0,
+    "invalid": 37,
+    "timestamp": "2025-08-22T19:49:14.311Z"
+  },
+  "results": [
+    {
+      "exercise": "Barbell Back Squat",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/Dy28eq2PjcM",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Back Squat",
+      "variation": "Box Squats",
+      "url": "https://youtu.be/6qV1WZ_z0u0",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Back Squat",
+      "variation": "Goblet Squats",
+      "url": "https://youtu.be/LdahU9kB-u0",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Bench Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/rT7DgCr-3pg",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Deadlift",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/op9kVnSso6Q",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Hip Thrust",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/srYETmyq3_c",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Barbell Row",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/kBWAon7ItDw",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Cable Lateral Raise",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/3VcKaXpzqRo",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Cable Pushdowns",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/2-LAMcpzODU",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Dumbbell Fly",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/eozdVDA78K0",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Dumbbell Romanian Deadlift",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/2SHsk9AzdjA",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Flat Dumbbell Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/QCAGs6YEmxY",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Hammer Curls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/zC3nLlEvin4",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Incline DB Overhead Extensions",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/YbX7Wd8jQ-Q",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Incline Dumbbell Curls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/soxrZlIl35U",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Kneeling Lat Pulldown",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/CAwf7n6Luuc",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Lat Focused Cable Row",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/GZbfZ033f74",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Lat Pulldown",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/CAwf7n6Luuc",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Low Incline Dumbbell Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/sO8lFa9CidE",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Lying Leg Curls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/aYy3alWRDmk",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Quad-Focused Leg Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/0nrW-q7-WRQ",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Rear Delt Cable Row",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/k9G7BykDD4o",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Seated Cable Row",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/Q-5V5T55giY",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Seated Dumbbell Curls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/qUAzPq4B2aw",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Seated Dumbbell Shoulder Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/DPXG3BJvl8A",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Seated Leg Curls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/81umRgyxIAU",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Seated Leg Extensions",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/nIalczfM8es",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Side Plank",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/o4LGPtKjbhU",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Single Leg Weighted Calf Raise",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/cRKA_Qdut7I",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Single-Leg Leg Press",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/hdioTTf8qdw",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Smith Machine Hip Thrust",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/srYETmyq3_c",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Smith Machine Squat",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/zSVi51Jp3eI",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Standing Face Pulls",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/02g7XtSRXug",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Standing High To Low Cable Fly",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/JfZjng7jAKs",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Standing Weighted Calf Raise",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/q2Eigaa9dKU",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Walking Lunges",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/JB20RuTOaFc",
+      "status": 303,
+      "valid": false
+    },
+    {
+      "exercise": "Weighted Step-Ups",
+      "variation": "See Tutorial Video",
+      "url": "https://youtu.be/Cjc3AgmdtlA",
+      "status": 303,
+      "valid": false
+    }
+  ]
+}

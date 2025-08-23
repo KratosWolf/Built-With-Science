@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Validação de Exercícios - Built With Science</title>
+    <style>
+        body { font-family: system-ui, -apple-system, sans-serif; line-height: 1.6; margin: 0; padding: 20px; background: #f5f5f5; }
+        .container { max-width: 1200px; margin: 0 auto; background: white; padding: 30px; border-radius: 10px; box-shadow: 0 2px 10px rgba(0,0,0,0.1); }
+        h1 { color: #2563eb; text-align: center; margin-bottom: 30px; }
+        .exercise-group { margin-bottom: 30px; border: 1px solid #e5e7eb; border-radius: 8px; overflow: hidden; }
+        .exercise-header { background: #f3f4f6; padding: 15px; font-weight: bold; font-size: 18px; }
+        .variation { padding: 15px; border-bottom: 1px solid #e5e7eb; display: flex; align-items: center; gap: 15px; }
+        .variation:last-child { border-bottom: none; }
+        .variation-number { background: #2563eb; color: white; width: 30px; height: 30px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: bold; }
+        .variation-info { flex: 1; }
+        .variation-name { font-weight: 600; margin-bottom: 5px; }
+        .variation-url { color: #6b7280; font-size: 14px; word-break: break-all; }
+        .test-button { background: #10b981; color: white; border: none; padding: 8px 15px; border-radius: 5px; cursor: pointer; font-size: 14px; }
+        .test-button:hover { background: #059669; }
+        .status { width: 100px; text-align: center; }
+        .status-pending { color: #6b7280; }
+        .status-valid { color: #10b981; font-weight: bold; }
+        .status-invalid { color: #ef4444; font-weight: bold; }
+        .checkbox { margin-right: 10px; }
+        .summary { background: #eff6ff; padding: 20px; border-radius: 8px; margin-bottom: 30px; }
+        .primary-exercise { background: #fef3c7; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🏋️‍♂️ Validação de Exercícios - Built With Science</h1>
+        
+        <div class="summary">
+            <h3>📋 Instruções para Validação:</h3>
+            <ol>
+                <li><strong>Exercício Principal:</strong> Sempre a primeira variação (destacada em amarelo)</li>
+                <li><strong>Teste o URL:</strong> Clique em "Testar" para abrir o vídeo</li>
+                <li><strong>Valide:</strong> Verifique se o vídeo corresponde ao exercício</li>
+                <li><strong>Marque:</strong> ✅ se correto, ❌ se incorreto ou não funciona</li>
+            </ol>
+        </div>
+
+        <!-- EXERCÍCIO 1 -->
+        <div class="exercise-group">
+            <div class="exercise-header">💪 Barbell Back Squat</div>
+            <div class="variation primary-exercise">
+                <div class="variation-number">1</div>
+                <div class="variation-info">
+                    <div class="variation-name">🎯 See Tutorial Video (PRINCIPAL)</div>
+                    <div class="variation-url">https://youtu.be/Dy28eq2PjcM</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/Dy28eq2PjcM', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+            <div class="variation">
+                <div class="variation-number">2</div>
+                <div class="variation-info">
+                    <div class="variation-name">Box Squats</div>
+                    <div class="variation-url">https://youtu.be/6qV1WZ_z0u0</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/6qV1WZ_z0u0', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCÍCIO 2 -->
+        <div class="exercise-group">
+            <div class="exercise-header">💪 Barbell Bench Press</div>
+            <div class="variation primary-exercise">
+                <div class="variation-number">1</div>
+                <div class="variation-info">
+                    <div class="variation-name">🎯 See Tutorial Video (PRINCIPAL)</div>
+                    <div class="variation-url">https://youtu.be/rT7DgCr-3pg</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/rT7DgCr-3pg', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCÍCIO 3 -->
+        <div class="exercise-group">
+            <div class="exercise-header">💪 Barbell Deadlift</div>
+            <div class="variation primary-exercise">
+                <div class="variation-number">1</div>
+                <div class="variation-info">
+                    <div class="variation-name">🎯 See Tutorial Video (PRINCIPAL)</div>
+                    <div class="variation-url">https://youtu.be/op9kVnSso6Q</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/op9kVnSso6Q', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCÍCIO 4 -->
+        <div class="exercise-group">
+            <div class="exercise-header">💪 Dumbbell Romanian Deadlift</div>
+            <div class="variation primary-exercise">
+                <div class="variation-number">1</div>
+                <div class="variation-info">
+                    <div class="variation-name">🎯 See Tutorial Video (PRINCIPAL)</div>
+                    <div class="variation-url">https://youtu.be/2SHsk9AzdjA</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/2SHsk9AzdjA', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+        </div>
+
+        <!-- EXERCÍCIO 5 -->
+        <div class="exercise-group">
+            <div class="exercise-header">💪 Lat Pulldown</div>
+            <div class="variation primary-exercise">
+                <div class="variation-number">1</div>
+                <div class="variation-info">
+                    <div class="variation-name">🎯 See Tutorial Video (PRINCIPAL)</div>
+                    <div class="variation-url">https://youtu.be/CAwf7n6Luuc</div>
+                </div>
+                <button class="test-button" onclick="window.open('https://youtu.be/CAwf7n6Luuc', '_blank')">Testar</button>
+                <div class="status">
+                    <input type="checkbox" class="checkbox"> ✅ OK
+                    <input type="checkbox" class="checkbox"> ❌ Erro
+                </div>
+            </div>
+        </div>
+
+        <!-- Mais exercícios podem ser adicionados aqui -->
+
+        <div style="margin-top: 40px; padding: 20px; background: #f0f9ff; border-radius: 8px;">
+            <h3>📊 Próximos Passos:</h3>
+            <ol>
+                <li><strong>Validar URLs:</strong> Teste os exercícios principais primeiro</li>
+                <li><strong>Substituir URLs inválidos:</strong> Encontrar vídeos alternativos</li>
+                <li><strong>Implementar UX:</strong> Dropdown + cache de último exercício</li>
+                <li><strong>Migrar para Flutter:</strong> Quando tudo estiver validado</li>
+            </ol>
+        </div>
+    </div>
+</body>
+</html>
