@@ -7,7 +7,7 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { ExerciseSelector } from '@/components/ui/exercise-selector';
 import { RestTimer } from '@/components/ui/rest-timer';
-import { day1Exercises } from '@/lib/mock-data/user-exercises';
+import { day1Exercises, getUserExerciseById, getUserExerciseVariations } from '@/lib/mock-data/user-exercises';
 import { ArrowLeft, Timer, CheckCircle } from 'lucide-react';
 
 export default function WorkoutPage() {
@@ -95,9 +95,10 @@ export default function WorkoutPage() {
             </CardHeader>
             <CardContent>
               <RestTimer
-                initialDuration={restDuration}
+                initialSeconds={restDuration}
                 onComplete={handleRestComplete}
                 onSkip={handleRestComplete}
+                isActive={showRestTimer}
               />
             </CardContent>
           </Card>

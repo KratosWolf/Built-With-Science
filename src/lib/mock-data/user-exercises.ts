@@ -69,11 +69,10 @@ export const userExerciseVariations: ExerciseVariation[] = [
   { id: 5, exercise_id: 1, variation_index: 5, variation_name: "Seated Flat Cable Press", youtube_url: "https://youtu.be/hPpNTAEDnxM" },
   { id: 6, exercise_id: 1, variation_index: 6, variation_name: "Neutral Grip DB Press*", youtube_url: "https://youtu.be/N-kUwH1uf9c" },
 
-  // BARBELL ROMANIAN DEADLIFT (id: 7)
+  // BARBELL ROMANIAN DEADLIFT (id: 7) - 3 variações
   { id: 7, exercise_id: 7, variation_index: 1, variation_name: "Barbell Romanian Deadlift", youtube_url: "https://youtu.be/Q-2telZDPRw", is_primary: true },
-  { id: 8, exercise_id: 8, variation_index: 1, variation_name: "Dumbbell Romanian Deadlift", youtube_url: "https://youtu.be/Xu4DxwKWzl4", is_primary: true },
-  { id: 9, exercise_id: 8, variation_index: 2, variation_name: "Dumbbell Romanian Deadlift", youtube_url: "https://youtu.be/Xu4DxwKWzl4" },
-  { id: 10, exercise_id: 9, variation_index: 1, variation_name: "Hyperextensions (back/hamstring)", youtube_url: "https://youtu.be/RU5d2H_OmSc", is_primary: true },
+  { id: 8, exercise_id: 7, variation_index: 2, variation_name: "Dumbbell Romanian Deadlift", youtube_url: "https://youtu.be/Xu4DxwKWzl4" },
+  { id: 9, exercise_id: 7, variation_index: 3, variation_name: "Hyperextensions (back/hamstring)", youtube_url: "https://youtu.be/RU5d2H_OmSc" },
 
   // (WEIGHTED) PULL-UPS (id: 10) - 7 variações  
   { id: 11, exercise_id: 10, variation_index: 1, variation_name: "(Weighted) Pull-Ups", youtube_url: "https://youtu.be/w_yuTRQd6HA", is_primary: true },
@@ -120,18 +119,18 @@ export const userExerciseVariations: ExerciseVariation[] = [
 
 // Programa 3 dias - Treino A (Full Body A)
 export const day1Exercises = [
-  { exercise_id: 1, sets: 3, reps_target: "8-10" },  // Barbell Bench Press
-  { exercise_id: 7, sets: 3, reps_target: "8-10" },  // Barbell Romanian Deadlift  
-  { exercise_id: 10, sets: 3, reps_target: "6-12" }, // (Weighted) Pull-Ups
-  { exercise_id: 17, sets: 3, reps_target: "8-10 per leg" }, // Walking Lunges (quad focus)
+  { exercise_id: 1, sets: 3, reps_target: "8-10" },  // Barbell Bench Press (tem 6 variações)
+  { exercise_id: 7, sets: 3, reps_target: "8-10" },  // Barbell Romanian Deadlift (tem 3 variações)
+  { exercise_id: 10, sets: 3, reps_target: "6-12" }, // (Weighted) Pull-Ups (tem 7 variações)
+  { exercise_id: 17, sets: 3, reps_target: "8-10 per leg" }, // Walking Lunges (tem 5 variações)
   
   // Superset A
-  { exercise_id: 22, sets: 3, reps_target: "10-15", is_superset: true, superset_label: "A", superset_exercise_label: "A1" }, // Standing Mid-Chest Cable Fly
-  { exercise_id: 27, sets: 3, reps_target: "15-20", is_superset: true, superset_label: "A", superset_exercise_label: "A2" }, // Dumbbell Lateral Raise
+  { exercise_id: 22, sets: 3, reps_target: "10-15", is_superset: true, superset_label: "A", superset_exercise_label: "A1" }, // Standing Mid-Chest Cable Fly (tem 5 variações)
+  { exercise_id: 27, sets: 3, reps_target: "15-20", is_superset: true, superset_label: "A", superset_exercise_label: "A2" }, // Dumbbell Lateral Raise (tem 5 variações)
   
-  // Superset B
-  { exercise_id: 32, sets: 3, reps_target: "10-15", is_superset: true, superset_label: "B", superset_exercise_label: "B1" }, // Single Leg Weighted Calf Raise
-  { exercise_id: 36, sets: 3, reps_target: "10", is_superset: true, superset_label: "B", superset_exercise_label: "B2" }, // Standing Face Pulls
+  // Superset B  
+  { exercise_id: 32, sets: 3, reps_target: "10-15", is_superset: true, superset_label: "B", superset_exercise_label: "B1" }, // Single Leg Weighted Calf Raise (tem 4 variações)
+  { exercise_id: 36, sets: 3, reps_target: "10", is_superset: true, superset_label: "B", superset_exercise_label: "B2" }, // Standing Face Pulls (tem 4 variações)
 ];
 
 // Função para obter exercício por ID
