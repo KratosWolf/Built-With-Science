@@ -5,7 +5,7 @@ import { mockPrograms, mockProgramDays, getProgramById, getProgramDays } from '@
 import { notFound } from 'next/navigation';
 
 interface ProgramDetailPageProps {
-  params: { id: string };
+  params: Promise<{ id: string }>;
 }
 
 export default async function ProgramDetailPage({ params }: ProgramDetailPageProps) {

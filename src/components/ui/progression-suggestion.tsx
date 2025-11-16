@@ -55,7 +55,7 @@ export function ProgressionSuggestion({
     <Card className={`border-${cardColor}-200 bg-${cardColor}-50`}>
       <CardHeader className="pb-3">
         <CardTitle className={`text-sm text-${cardColor}-800 flex items-center gap-2`}>
-          {isIncrease ? '📈' : suggestion.suggested_weight === (lastSet.weight_kg || 0) ? '🎯' : '📉'} 
+          {isIncrease ? '📈' : suggestion.suggestedWeight === (lastSet.weight_kg || 0) ? '🎯' : '📉'}
           Smart Suggestion
         </CardTitle>
       </CardHeader>

@@ -440,7 +440,7 @@ export function ExerciseSelector({
                       <SelectItem value="medium">😊 Medium - I could have done 2 more reps</SelectItem>
                       <SelectItem value="hard">😅 Hard - I could have done 1 more rep</SelectItem>
                       <SelectItem value="max_effort">🔥 Max effort - I could not have done any more reps</SelectItem>
-                      <SelectItem value="failed">💥 Failed - I tried to do another rep but couldn't</SelectItem>
+                      <SelectItem value="failed">💥 Failed - I tried to do another rep but couldn&apos;t</SelectItem>
                     </SelectContent>
                   </Select>
                 </div>

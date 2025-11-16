@@ -40,6 +40,7 @@ export interface ExerciseVariation {
   variation_index: number;
   variation_name: string;
   youtube_url: string;
+  is_primary?: boolean;
 }
 
 export interface User {
