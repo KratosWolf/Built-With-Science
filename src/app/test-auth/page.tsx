@@ -252,7 +252,7 @@ export default function TestAuth() {
           <CardContent className="text-sm text-gray-400 space-y-2">
             <ol className="list-decimal list-inside space-y-2">
               <li>Digite o email e senha que funcionam no app Flutter</li>
-              <li>Clique em "Testar Autenticação"</li>
+              <li>Clique em &quot;Testar Autenticação&quot;</li>
               <li>Abra o DevTools (F12) e vá na aba Console</li>
               <li>Copie TODOS os logs que aparecem no console</li>
               <li>Copie o resultado que aparece acima</li>
